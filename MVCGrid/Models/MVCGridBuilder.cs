@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -251,19 +250,6 @@ namespace MVCGrid.Models
             return this;
         }
 
-        [ObsoleteAttribute("This is obsolete. Use AddRenderingEngine and WithDefaultRenderingEngineName instead.", false)] 
-        public MVCGridBuilder<T1> WithRenderingEngine(Type renderingEngineType)
-        {
-            //GridDefinition.RenderingEngine = renderingEngineType;
-            string fullyQualifiedName = renderingEngineType.AssemblyQualifiedName;
-            string name = renderingEngineType.Name;
-
-            GridDefinition.RenderingEngines.Add(new ProviderSettings(name, fullyQualifiedName));
-            GridDefinition.DefaultRenderingEngineName = name;
-
-            return this;
-        }
-
         /// <summary>
         /// Sets the default rendering engine name (which should match a name from the RenderingEngines property) which
         /// will be used when no rendering engine name is specified in the request
@@ -276,28 +262,28 @@ namespace MVCGrid.Models
             return this;
         }
 
-        /// <summary>
-        /// Adds a rendering engine to the list of configured rendering engines.
-        /// </summary>
-        /// <param name="name">A unique name.</param>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Adds a rendering engine to the list of configured rendering engines.
+        ///// </summary>
+        ///// <param name="name">A unique name.</param>
+        ///// <param name="type">The type.</param>
+        ///// <returns></returns>
         public MVCGridBuilder<T1> AddRenderingEngine(string name, Type renderingEngineType)
         {
             string fullyQualifiedName = renderingEngineType.AssemblyQualifiedName;
-            GridDefinition.RenderingEngines.Add(new ProviderSettings(name, fullyQualifiedName));
+            GridDefinition.RenderingEngines.Add(new RenderingEngine(name, fullyQualifiedName));
             return this;
         }
 
-        /// <summary>
-        /// Adds a rendering engine to the list of configured rendering engines.
-        /// </summary>
-        /// <param name="name">A unique name.</param>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Adds a rendering engine to the list of configured rendering engines.
+        ///// </summary>
+        ///// <param name="name">A unique name.</param>
+        ///// <param name="type">The type.</param>
+        ///// <returns></returns>
         public MVCGridBuilder<T1> AddRenderingEngine(string name, string type)
         {
-            GridDefinition.RenderingEngines.Add(new ProviderSettings(name, type));
+            GridDefinition.RenderingEngines.Add(new RenderingEngine(name, type));
             return this;
         }
 

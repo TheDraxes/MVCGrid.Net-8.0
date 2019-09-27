@@ -155,7 +155,7 @@ namespace MVCGrid.Interfaces
         /// <value>
         /// The rendering engines, each with a unique name
         /// </value>
-        ProviderSettingsCollection RenderingEngines { get; set; }
+        RenderingEngineCollection RenderingEngines { get; set; }
 
         /// <summary>
         /// The unique rendering engine name to use when none is specified in the request

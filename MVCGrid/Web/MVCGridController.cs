@@ -4,7 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MVCGrid.Models;
 using System.Web.Mvc;
+using MVCGrid.Interfaces;
+using System.Web;
+using System.Threading.Tasks;
 
 namespace MVCGrid.Web
 {
@@ -12,15 +16,11 @@ namespace MVCGrid.Web
     {
         public ActionResult Grid()
         {
-            var context = System.Web.HttpContext.Current;
-
-            string gridName = context.Request["Name"];
-
-            var grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
-
-            var options = QueryStringParser.ParseOptions(grid, context.Request);
-
-            var gridContext = GridContextUtility.Create(context, gridName, grid, options);
+            HttpContext context = System.Web.HttpContext.Current;
+            string gridName = context.Request.QueryString["Name"];
+            IMVCGridDefinition grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
+            QueryOptions options = QueryStringParser.ParseOptions(grid, context.Request);
+            GridContext gridContext = GridContextUtility.Create(context, gridName, grid, options);
 
             GridEngine engine = new GridEngine();
             if (!engine.CheckAuthorization(gridContext))
@@ -29,7 +29,6 @@ namespace MVCGrid.Web
             }
 
             var renderingModel = engine.GenerateModel(gridContext);
-
             return PartialView(grid.ViewPath, renderingModel);
         }
     }

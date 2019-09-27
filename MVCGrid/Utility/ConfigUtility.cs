@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 
@@ -11,19 +10,22 @@ namespace MVCGrid.Utility
     {
         internal const string ShowErrorsAppSettingName = "MVCGridShowErrorDetail";
 
+        [Obsolete("Will be removed soon due to compatability issues.")]
         internal static T GetAppSetting<T>(string name, T defaultValue)
         {
-            string val = ConfigurationManager.AppSettings[name];
+            return defaultValue;
 
-            if (String.IsNullOrWhiteSpace(val))
-            {
-                return defaultValue;
-            }
+            //string val = ConfigurationManager.AppSettings[name];
 
-            var converter = TypeDescriptor.GetConverter(typeof(T));
-            var result = converter.ConvertFrom(val);
+            //if (String.IsNullOrWhiteSpace(val))
+            //{
+            //    return defaultValue;
+            //}
 
-            return (T)result;
+            //var converter = TypeDescriptor.GetConverter(typeof(T));
+            //var result = converter.ConvertFrom(val);
+
+            //return (T)result;
         }
 
         internal static bool GetShowErrorDetailsSetting()

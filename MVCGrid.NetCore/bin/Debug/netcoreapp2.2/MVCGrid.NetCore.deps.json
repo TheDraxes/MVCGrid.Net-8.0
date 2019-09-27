@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "MVCGrid.NetCore/1.0.0": {
+        "dependencies": {
+          "MVCGrid": "1.0.0"
+        },
+        "runtime": {
+          "MVCGrid.NetCore.dll": {}
+        }
+      },
+      "MVCGrid/1.0.0": {
+        "dependencies": {
+          "System.Web.Mvc": "3.0.0.0"
+        },
+        "runtime": {
+          "MVCGrid.dll": {}
+        }
+      },
+      "System.Web.Mvc.Reference/3.0.0.0": {
+        "runtime": {
+          "System.Web.Mvc.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20105.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MVCGrid.NetCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MVCGrid/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Web.Mvc.Reference/3.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

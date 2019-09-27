@@ -80,7 +80,7 @@ namespace MVCGrid.Models
                 string fullyQualifiedName = value.AssemblyQualifiedName;
                 string name = value.Name;
 
-                RenderingEngines.Add(new ProviderSettings(name, fullyQualifiedName));
+                RenderingEngines.Add(name, new RenderingEngine(name, fullyQualifiedName));
                 DefaultRenderingEngineName = name;
             }
         }
@@ -354,7 +354,7 @@ namespace MVCGrid.Models
         /// </summary>
         public AuthorizationType AuthorizationType { get; set; }
 
-        public ProviderSettingsCollection RenderingEngines { get; set; }
+        public RenderingEngineCollection RenderingEngines { get; set; }
         public string DefaultRenderingEngineName { get; set; }
     }
 

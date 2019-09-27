@@ -1,0 +1,16 @@
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csproj.CoreCompileInputs.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfoInputs.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfo.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csprojAssemblyReference.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.deps.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.runtimeconfig.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.runtimeconfig.dev.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\System.Web.Mvc.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.xml
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csproj.CopyComplete
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb

@@ -1,0 +1,36 @@
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csprojAssemblyReference.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.CoreCompileInputs.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.AssemblyInfoInputs.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.AssemblyInfo.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.deps.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.runtimeconfig.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.runtimeconfig.dev.json
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\System.Web.Mvc.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.xml
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.TagHelpers.input.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.TagHelpers.output.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorCoreGenerate.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Error.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Index.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Privacy.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_Layout.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cache
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.pdb
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.CopyComplete
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb

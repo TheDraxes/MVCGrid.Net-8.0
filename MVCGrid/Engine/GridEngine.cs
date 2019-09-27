@@ -25,9 +25,9 @@ namespace MVCGrid.Engine
 
             if (!String.IsNullOrWhiteSpace(gridContext.QueryOptions.RenderingEngineName))
             {
-                foreach (ProviderSettings configuredEngine in gridContext.GridDefinition.RenderingEngines)
+                foreach (KeyValuePair<string, RenderingEngine> configuredEngine in gridContext.GridDefinition.RenderingEngines)
                 {
-                    if (String.Compare(gridContext.QueryOptions.RenderingEngineName, configuredEngine.Name, true) == 0)
+                    if (String.Compare(gridContext.QueryOptions.RenderingEngineName, configuredEngine.Value.Name, true) == 0)
                     {
                         string engineName = gridContext.QueryOptions.RenderingEngineName;
 

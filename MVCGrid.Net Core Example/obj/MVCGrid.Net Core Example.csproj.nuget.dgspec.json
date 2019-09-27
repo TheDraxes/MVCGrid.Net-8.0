@@ -1,0 +1,161 @@
+{
+  "format": 1,
+  "restore": {
+    "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.Net Core Example\\MVCGrid.Net Core Example.csproj": {}
+  },
+  "projects": {
+    "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.Net Core Example\\MVCGrid.Net Core Example.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.Net Core Example\\MVCGrid.Net Core Example.csproj",
+        "projectName": "MVCGrid.Net Core Example",
+        "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.Net Core Example\\MVCGrid.Net Core Example.csproj",
+        "packagesPath": "C:\\Users\\AlphaPC\\.nuget\\packages\\",
+        "outputPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.Net Core Example\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\.nuget\\NuGet.Config",
+          "C:\\Users\\AlphaPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://sixleafplatform.pkgs.visualstudio.com/_packaging/AcornFeed/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj": {
+                "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj"
+              },
+              "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
+                "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj",
+        "projectName": "MVCGrid.NetCore",
+        "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj",
+        "packagesPath": "C:\\Users\\AlphaPC\\.nuget\\packages\\",
+        "outputPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\.nuget\\NuGet.Config",
+          "C:\\Users\\AlphaPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://sixleafplatform.pkgs.visualstudio.com/_packaging/AcornFeed/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
+                "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj",
+        "projectName": "MVCGrid",
+        "projectPath": "X:\\Users\\AlphaPC\\Source\\Repos\\johnsonalpha\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    }
+  }
+}
