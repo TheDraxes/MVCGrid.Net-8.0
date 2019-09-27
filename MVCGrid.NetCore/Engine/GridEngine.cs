@@ -101,7 +101,8 @@ namespace MVCGrid.NetCore.Engine
         {
             RenderingModel model = new RenderingModel();
 
-            model.HandlerPath = HtmlUtility.GetHandlerPath();
+            string applicationPath = HttpHelper.HttpContext.Request.Host.Value;
+            model.HandlerPath = HtmlUtility.GetHandlerPath(applicationPath);
             model.TableHtmlId = HtmlUtility.GetTableHtmlId(gridContext.GridName);
 
             PrepColumns(gridContext, model);
@@ -188,14 +189,14 @@ namespace MVCGrid.NetCore.Engine
             }
         }
 
-        public string GetBasePageHtml(HtmlHelper helper, string gridName, IMVCGridDefinition grid, object pageParameters)
+        public string GetBasePageHtml(string gridName, IMVCGridDefinition grid, object pageParameters)
         {
             string preload = "";
             if (grid.QueryOnPageLoad && grid.PreloadData)
             {
                 try
                 {
-                    preload = RenderPreloadedGridHtml(helper, grid, gridName, pageParameters);
+                    preload = RenderPreloadedGridHtml(grid, gridName, pageParameters);
                 }
                 catch (Exception ex)
                 {
@@ -216,17 +217,17 @@ namespace MVCGrid.NetCore.Engine
                 }
             }
 
-            string baseGridHtml = MVCGridHtmlGenerator.GenerateBasePageHtml(gridName, grid, pageParameters);
+            string baseGridHtml = MVCGridHtmlGenerator.GenerateBasePageHtml(gridName, grid, pageParameters, HttpHelper.HttpContext.Request.Host.Value);
             baseGridHtml = baseGridHtml.Replace("%%PRELOAD%%", preload);
 
             ContainerRenderingModel containerRenderingModel = new ContainerRenderingModel() { InnerHtmlBlock = baseGridHtml };
 
-            string html = RenderContainerHtml(helper, grid, gridName, containerRenderingModel);
+            string html = RenderContainerHtml(grid, gridName, containerRenderingModel);
 
             return html;
         }
 
-        private static string RenderContainerHtml(HtmlHelper helper, IMVCGridDefinition grid, string gridName, ContainerRenderingModel containerRenderingModel)
+        private static string RenderContainerHtml(IMVCGridDefinition grid, string gridName, ContainerRenderingModel containerRenderingModel)
         {
             string container = containerRenderingModel.InnerHtmlBlock;
             switch (grid.RenderingMode)
@@ -238,7 +239,7 @@ namespace MVCGrid.NetCore.Engine
                 case Models.RenderingMode.Controller:
                     if (!String.IsNullOrWhiteSpace(grid.ContainerViewPath))
                     {
-                        container = RenderContainerUsingController(grid, helper, containerRenderingModel);
+                        container = RenderContainerUsingController(grid, containerRenderingModel);
                     }
                     break;
                 default:
@@ -253,7 +254,7 @@ namespace MVCGrid.NetCore.Engine
             return container;
         }
 
-        private static string RenderPreloadedGridHtml(HtmlHelper helper, IMVCGridDefinition grid, string gridName, object pageParameters)
+        private static string RenderPreloadedGridHtml(IMVCGridDefinition grid, string gridName, object pageParameters)
         {
             string preload = "";
 
@@ -290,20 +291,20 @@ namespace MVCGrid.NetCore.Engine
 
             switch (grid.RenderingMode)
             {
-                // TODO: Enable support for non controller rendering
-                //case Models.RenderingMode.RenderingEngine:
-                //    preload = RenderUsingRenderingEngine(engine, gridContext);
-                //    break;
-                case Models.RenderingMode.Controller:
-                    preload = RenderUsingController(engine, gridContext, helper);
+                case Models.RenderingMode.RenderingEngine:
+                    preload = RenderUsingRenderingEngine(engine, gridContext);
                     break;
+                // TODO: Enable support for controller rendering
+                //case Models.RenderingMode.Controller:
+                //    preload = RenderUsingController(engine, gridContext);
+                //    break;
                 default:
                     throw new InvalidOperationException();
             }
             return preload;
         }
 
-        private static string RenderUsingController(GridEngine engine, Models.GridContext gridContext, HtmlHelper helper)
+        private static string RenderUsingController(GridEngine engine, Models.GridContext gridContext)
         {
             return string.Empty;
             //var model = engine.GenerateModel(gridContext);
@@ -338,7 +339,7 @@ namespace MVCGrid.NetCore.Engine
             }
         }
 
-        private static string RenderContainerUsingController(IMVCGridDefinition gridDefinition, HtmlHelper helper, ContainerRenderingModel model)
+        private static string RenderContainerUsingController(IMVCGridDefinition gridDefinition, ContainerRenderingModel model)
         {
             return string.Empty;
             //var controllerContext = helper.ViewContext.Controller.ControllerContext;

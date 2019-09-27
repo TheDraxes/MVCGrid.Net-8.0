@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using MVCGrid.Engine;
+using MVCGrid.NetCore.Engine;
 using MVCGrid.Interfaces;
 using MVCGrid.NetCore.Helpers;
 using MVCGrid.Web;
@@ -32,7 +32,7 @@ namespace MVCGrid.NetCore.Web
         {
             GridEngine ge = new GridEngine();
 
-            string html = ge.GetBasePageHtml(/*helper, */HttpHelper.HttpContext.Request.ToNameValueCollection(), name, grid, pageParameters);
+            string html = ge.GetBasePageHtml(name, grid, pageParameters);
 
             return new HtmlString(html);
         }

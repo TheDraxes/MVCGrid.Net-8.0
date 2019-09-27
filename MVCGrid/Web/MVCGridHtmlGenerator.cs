@@ -131,7 +131,7 @@ namespace MVCGrid.Web
             return sb.ToString();
         }
 
-        public static string GenerateBasePageHtml(string gridName, IMVCGridDefinition def, object pageParameters)
+        public static string GenerateBasePageHtml(string gridName, IMVCGridDefinition def, object pageParameters, string applicationPath = "")
         {
             string definitionJson = GenerateClientDefinitionJson(gridName, def, pageParameters);
 
@@ -157,8 +157,12 @@ namespace MVCGrid.Web
 
             if (renderLoadingDiv)
             {
+                if (string.IsNullOrEmpty(applicationPath) == true)
+                {
+                    applicationPath = HtmlUtility.GetHandlerPath();
+                }
                 sbHtml.AppendFormat("<div id='MVCGrid_Loading_{0}' class='text-center' style='visibility: hidden'>", gridName);
-                sbHtml.AppendFormat("&nbsp;&nbsp;&nbsp;<img src='{0}/ajaxloader.gif' alt='{1}' style='width: 15px; height: 15px;' />", HtmlUtility.GetHandlerPath(), def.ProcessingMessage);
+                sbHtml.AppendFormat("&nbsp;&nbsp;&nbsp;<img src='{0}/ajaxloader.gif' alt='{1}' style='width: 15px; height: 15px;' />", applicationPath, def.ProcessingMessage);
                 sbHtml.AppendFormat("&nbsp;{0}...", def.ProcessingMessage);
                 sbHtml.Append("</div>");
             }
