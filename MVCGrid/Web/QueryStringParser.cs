@@ -2,6 +2,7 @@
 using MVCGrid.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Web;
 
 namespace MVCGrid.Web
 {
-    internal class QueryStringParser
+    public class QueryStringParser
     {
         // NOTE: when adding a new suffix, add code to MVCGridDefinitionTable to verify there is no conflict
         public const string QueryStringSuffix_Page = "page";
@@ -21,7 +22,7 @@ namespace MVCGrid.Web
 
         public const string QueryStringPrefix_PageParameter = "_pp_";
 
-        public static QueryOptions ParseOptions(IMVCGridDefinition grid, HttpRequest httpRequest)
+        public static QueryOptions ParseOptions(IMVCGridDefinition grid, NameValueCollection queryString)
         {
             string qsKeyPage = grid.QueryStringPrefix + QueryStringSuffix_Page;
             string qsKeySort = grid.QueryStringPrefix + QueryStringSuffix_Sort;
@@ -32,9 +33,9 @@ namespace MVCGrid.Web
 
             var options = new QueryOptions();
 
-            if (httpRequest.QueryString[qsKeyEngine] != null)
+            if (queryString[qsKeyEngine] != null)
             {
-                string re = httpRequest.QueryString[qsKeyEngine];
+                string re = queryString[qsKeyEngine];
                 options.RenderingEngineName = re;
             }
 
@@ -49,10 +50,10 @@ namespace MVCGrid.Web
 
                 if (grid.AllowChangingPageSize)
                 {
-                    if (httpRequest.QueryString[qsKeyPageSize] != null)
+                    if (queryString[qsKeyPageSize] != null)
                     {
                         int pageSize;
-                        if (Int32.TryParse(httpRequest.QueryString[qsKeyPageSize], out pageSize))
+                        if (Int32.TryParse(queryString[qsKeyPageSize], out pageSize))
                         {
                             options.ItemsPerPage = pageSize;
                         }
@@ -70,10 +71,10 @@ namespace MVCGrid.Web
                 }
 
                 options.PageIndex = 0;
-                if (httpRequest.QueryString[qsKeyPage] != null)
+                if (queryString[qsKeyPage] != null)
                 {
                     int pageNum;
-                    if (Int32.TryParse(httpRequest.QueryString[qsKeyPage], out pageNum))
+                    if (Int32.TryParse(queryString[qsKeyPage], out pageNum))
                     {
                         options.PageIndex = pageNum - 1;
                         if (options.PageIndex < 0) options.PageIndex = 0;
@@ -93,9 +94,9 @@ namespace MVCGrid.Web
                 {
                     string qsKey = grid.QueryStringPrefix + col.ColumnName;
 
-                    if (httpRequest.QueryString[qsKey] != null)
+                    if (queryString[qsKey] != null)
                     {
-                        string filterValue = httpRequest.QueryString[qsKey];
+                        string filterValue = queryString[qsKey];
 
                         if (!String.IsNullOrWhiteSpace(filterValue))
                         {
@@ -116,9 +117,9 @@ namespace MVCGrid.Web
                 options.SortColumnName = null;
 
                 string sortColName = null;
-                if (httpRequest.QueryString[qsKeySort] != null)
+                if (queryString[qsKeySort] != null)
                 {
-                    sortColName = httpRequest.QueryString[qsKeySort];
+                    sortColName = queryString[qsKeySort];
                 }
 
                 if (String.IsNullOrWhiteSpace(sortColName))
@@ -146,9 +147,9 @@ namespace MVCGrid.Web
                 
 
                 options.SortDirection = grid.DefaultSortDirection;
-                if (httpRequest.QueryString[qsKeyDirection] != null)
+                if (queryString[qsKeyDirection] != null)
                 {
-                    string sortDir = httpRequest.QueryString[qsKeyDirection];
+                    string sortDir = queryString[qsKeyDirection];
                     if (String.Compare(sortDir, "dsc", true) == 0)
                     {
                         options.SortDirection = SortDirection.Dsc;
@@ -167,9 +168,9 @@ namespace MVCGrid.Web
                     string qsKeyAQO = grid.QueryStringPrefix + aqon;
                     string val = "";
 
-                    if (httpRequest.QueryString[qsKeyAQO] != null)
+                    if (queryString[qsKeyAQO] != null)
                     {
-                        val = httpRequest.QueryString[qsKeyAQO];
+                        val = queryString[qsKeyAQO];
                     }
 
                     options.AdditionalQueryOptions.Add(aqon, val);
@@ -183,9 +184,9 @@ namespace MVCGrid.Web
                     string qsKeyAQO = QueryStringPrefix_PageParameter + grid.QueryStringPrefix + aqon;
                     string val = "";
 
-                    if (httpRequest.QueryString[qsKeyAQO] != null)
+                    if (queryString[qsKeyAQO] != null)
                     {
-                        val = httpRequest.QueryString[qsKeyAQO];
+                        val = queryString[qsKeyAQO];
                     }
 
                     options.PageParameters.Add(aqon, val);
@@ -195,7 +196,7 @@ namespace MVCGrid.Web
 
             var gridColumns = grid.GetColumns();
             List<ColumnVisibility> requestedColumns = new List<ColumnVisibility>();
-            if (httpRequest.QueryString[qsColumns] == null)
+            if (queryString[qsColumns] == null)
             {
                 foreach (var gridColumn in gridColumns)
                 {
@@ -208,7 +209,7 @@ namespace MVCGrid.Web
             }
             else
             {
-                string cols = httpRequest.QueryString[qsColumns];
+                string cols = queryString[qsColumns];
 
                 string[] colParts = cols.Split(',', ';');
 

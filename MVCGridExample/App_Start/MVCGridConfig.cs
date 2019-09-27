@@ -1,13 +1,16 @@
-﻿using MVCGrid.Models;
+﻿using MVCGrid.Extensions;
+using MVCGrid.Models;
 using MVCGrid.Web;
 using MVCGrid.Web.Data;
 using MVCGrid.Web.Models;
 using MVCGridExample.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MVCGridExample
 {
@@ -20,6 +23,8 @@ namespace MVCGridExample
                 EnableSorting = true
             };
 
+            UrlHelper UrlHelper = MVCGridExtensions.NewUrlHelper();
+
             MVCGridDefinitionTable.Add("TestGrid", new MVCGridBuilder<Person>(colDefauls)
                 .WithAuthorizationType(AuthorizationType.AllowAnonymous)
                 .WithSorting(sorting: true, defaultSortColumn: "Id", defaultSortDirection: SortDirection.Dsc)
@@ -27,7 +32,7 @@ namespace MVCGridExample
                 .WithAdditionalQueryOptionNames("search")
                 .AddColumns(cols =>
                 {
-                    cols.Add("Id").WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                    cols.Add("Id").WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>", false)
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -55,7 +60,7 @@ namespace MVCGridExample
                         .WithVisibility(visible: false, allowChangeVisibility: true)
                         .WithValueExpression(p => p.Email);
                     cols.Add("Url").WithVisibility(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }));
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }));
                 })
                 //.WithAdditionalSetting(MVCGrid.Rendering.BootstrapRenderingEngine.SettingNameTableClass, "notreal") // Example of changing table css class
                 .WithRetrieveDataMethod((context) =>
@@ -241,7 +246,7 @@ namespace MVCGridExample
                     cols.Add("ViewLink").WithSorting(false)
                         .WithHeaderText("")
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>View</a>");
                 })
                 .WithSorting(true, "LastName")
@@ -286,7 +291,7 @@ namespace MVCGridExample
                         .WithSorting(false)
                         .WithHeaderText("")
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>View</a>");
                 })
                 .WithRowCssClassExpression(p => p.Active ? "success" : "")
@@ -443,7 +448,7 @@ namespace MVCGridExample
                         .WithValueExpression((p, c) =>
                         {
                             return String.Format("<a href='{0}'>{1}</a>",
-                                c.UrlHelper.Action("detail", "demo", new { id = p.Id }), p.Id);
+                                UrlHelper.Action("detail", "demo", new { id = p.Id }), p.Id);
                         })
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -485,7 +490,7 @@ namespace MVCGridExample
                 {
                     cols.Add("Id").WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>")
                         .WithPlainTextValueExpression((p, c) => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -554,7 +559,7 @@ namespace MVCGridExample
                 {
                     cols.Add("Id").WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>")
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -565,7 +570,7 @@ namespace MVCGridExample
                         .WithHeaderText("Status")
                         .WithValueExpression(p => p.Active ? "Active" : "Inactive");
                 })
-                .WithRenderingEngine(typeof(CustomHtmlRenderingEngine))
+                //.WithRenderingEngine(typeof(CustomHtmlRenderingEngine))
                 .WithSorting(true, "LastName")
                 .WithPaging(true, 20)
                 .WithRetrieveDataMethod((context) =>
@@ -598,7 +603,7 @@ namespace MVCGridExample
                 {
                     cols.Add("Id").WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>")
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -641,7 +646,7 @@ namespace MVCGridExample
                 {
                     cols.Add("Id").WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>")
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -681,7 +686,7 @@ namespace MVCGridExample
                 .AddColumns(cols =>
                 {
                     cols.Add("Id").WithSorting(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>", false)
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
@@ -691,12 +696,12 @@ namespace MVCGridExample
                     cols.Add("Edit").WithHtmlEncoding(false)
                         .WithSorting(false)
                         .WithHeaderText(" ")
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}' class='btn btn-primary' role='button'>Edit</a>");
                     cols.Add("Delete").WithHtmlEncoding(false)
                         .WithSorting(false)
                         .WithHeaderText(" ")
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}' class='btn btn-danger' role='button'>Delete</a>");
                     cols.Add("Example").WithHtmlEncoding(false)
                         .WithSorting(false)
@@ -787,7 +792,7 @@ namespace MVCGridExample
                         .WithValueExpression(i => i.YourProperty); // use the Value Expression to return the cell text for this column
                     cols.Add().WithColumnName("UrlExample")
                         .WithHeaderText("Edit")
-                        .WithValueExpression((i, c) => c.UrlHelper.Action("detail", "demo", new { id = i.YourProperty }));
+                        .WithValueExpression((i, c) => UrlHelper.Action("detail", "demo", new { id = i.YourProperty }));
                 })
                 .WithRetrieveDataMethod((context) =>
                 {
@@ -924,7 +929,7 @@ namespace MVCGridExample
                         .WithHeaderText("Contact")
                         .WithHtmlEncoding(false)
                         .WithSorting(true)
-                        .WithValueExpression((p, c) => p.Contact != null ? c.UrlHelper.Action("Edit", "Contact", new { id = p.Contact.Id }) : "")
+                        .WithValueExpression((p, c) => p.Contact != null ? UrlHelper.Action("Edit", "Contact", new { id = p.Contact.Id }) : "")
                         .WithValueTemplate("<a href='{Value}'>{Model.Contact.FullName}</a>").WithPlainTextValueExpression((p, c) => p.Contact != null ? p.Contact.FullName : "");
                 })
                 .WithRetrieveDataMethod((context) =>
@@ -1018,7 +1023,7 @@ namespace MVCGridExample
                 {
                     cols.Add("Id").WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
+                        .WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
                         .WithValueTemplate("<a href='{Value}'>{Model.Id}</a>")
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")

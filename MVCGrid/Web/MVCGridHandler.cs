@@ -186,12 +186,12 @@ namespace MVCGrid.Web
 
             var grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
 
-            var options = QueryStringParser.ParseOptions(grid, context.Request);
+            var options = QueryStringParser.ParseOptions(grid, context.Request.QueryString);
 
-            var gridContext = GridContextUtility.Create(context, gridName, grid, options);
+            var gridContext = GridContextUtility.Create(/*context, */gridName, grid, options);
 
             GridEngine engine = new GridEngine();
-            if (!engine.CheckAuthorization(gridContext))
+            if (!engine.CheckAuthorization(gridContext, context.User.Identity.IsAuthenticated))
             {
                 //Forbidden
                 context.Response.StatusCode = 403;

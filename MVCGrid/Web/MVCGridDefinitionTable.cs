@@ -74,7 +74,7 @@ namespace MVCGrid.Web
 
         }
 
-        internal static IMVCGridDefinition GetDefinitionInterface(string name)
+        public static IMVCGridDefinition GetDefinitionInterface(string name)
         {
             if (String.IsNullOrWhiteSpace(name))
             {
@@ -89,7 +89,5 @@ namespace MVCGrid.Web
             return (IMVCGridDefinition)_table[name];
 
         }
-
-
     }
 }

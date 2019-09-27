@@ -6,12 +6,12 @@ using System.Text;
 
 namespace MVCGrid.Utility
 {
-    internal class ConfigUtility
+    public class ConfigUtility
     {
         internal const string ShowErrorsAppSettingName = "MVCGridShowErrorDetail";
 
         [Obsolete("Will be removed soon due to compatability issues.")]
-        internal static T GetAppSetting<T>(string name, T defaultValue)
+        public static T GetAppSetting<T>(string name, T defaultValue)
         {
             return defaultValue;
 
@@ -28,7 +28,7 @@ namespace MVCGrid.Utility
             //return (T)result;
         }
 
-        internal static bool GetShowErrorDetailsSetting()
+        public static bool GetShowErrorDetailsSetting()
         {
             return GetAppSetting<bool>(ShowErrorsAppSettingName, false);
         }

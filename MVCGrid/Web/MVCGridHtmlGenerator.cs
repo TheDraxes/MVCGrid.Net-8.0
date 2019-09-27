@@ -13,11 +13,11 @@ namespace MVCGrid.Web
 {
     //Feature Requests
     //Show/hide fields
-    internal class MVCGridHtmlGenerator
+    public class MVCGridHtmlGenerator
     {
         private const string RenderLoadingDivSettingName = "RenderLoadingDiv";
 
-        internal static string GenerateClientDataTransferHtml(GridContext gridContext)
+        public static string GenerateClientDataTransferHtml(GridContext gridContext)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -131,7 +131,7 @@ namespace MVCGrid.Web
             return sb.ToString();
         }
 
-        internal static string GenerateBasePageHtml(string gridName, IMVCGridDefinition def, object pageParameters)
+        public static string GenerateBasePageHtml(string gridName, IMVCGridDefinition def, object pageParameters)
         {
             string definitionJson = GenerateClientDefinitionJson(gridName, def, pageParameters);
 

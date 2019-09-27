@@ -33,7 +33,7 @@ namespace MVCGrid.Net_Core_Example
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddMvcGrid();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -55,7 +55,7 @@ namespace MVCGrid.Net_Core_Example
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
             app.RegisterMVCGrid("TestGrid", GridTest.Test());
             app.UseMvcGrid();
         }

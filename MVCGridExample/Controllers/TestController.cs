@@ -38,6 +38,8 @@ namespace MVCGrid.Web.Controllers
     {
         public override void RegisterGrids()
         {
+            UrlHelper UrlHelper = new UrlHelper();
+
             //Issue6Grid
             MVCGridDefinitionTable.Add("InitialDateGrid", new MVCGridBuilder<IReportInvoiceLine>()
                 .WithSorting(false)
@@ -101,7 +103,7 @@ namespace MVCGrid.Web.Controllers
                         .WithHeaderText("Contact")
                         .WithSorting(false)
                         .WithHtmlEncoding(false)
-                        .WithValueExpression((p, c) => p.Contact != null ? c.UrlHelper.Action("Edit", "Contact", new { id = p.Contact.Id }) : "")
+                        .WithValueExpression((p, c) => p.Contact != null ? UrlHelper.Action("Edit", "Contact", new { id = p.Contact.Id }) : "")
                         .WithValueTemplate("<a href='{Value}'>{Model.Contact.FullName}</a>").WithPlainTextValueExpression((p, c) => p.Contact != null ? p.Contact.FullName : "");
 
                     cols.Add("Delete")
@@ -109,7 +111,7 @@ namespace MVCGrid.Web.Controllers
                       .WithSorting(false)
                       .WithFiltering(false)
                       .WithHeaderText("<input type='checkbox' id='chkselectall'>")
-                      .WithValueExpression((p, c) => c.UrlHelper.Action("Save", "Country", new { area = "General", id = p.JobId }))
+                      .WithValueExpression((p, c) => UrlHelper.Action("Save", "Country", new { area = "General", id = p.JobId }))
                       .WithValueTemplate("<input type='checkbox' class='select' value='{Model.JobId}'>")
                       .WithPlainTextValueExpression((p, c) => "");
                 })
@@ -212,7 +214,7 @@ namespace MVCGrid.Web.Controllers
                     cols.Add("Actions").WithHtmlEncoding(false).WithValueExpression((p, c) =>
                     {
                         // here's how to get an action url
-                        string url = c.UrlHelper.Action("action1", "test");
+                        string url = UrlHelper.Action("action1", "test");
 
                         // build whatever html you want
                         StringBuilder sb = new StringBuilder();

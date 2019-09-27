@@ -13,10 +13,9 @@ namespace MVCGrid.Models
         {
             Items = new Dictionary<string, object>();
         }
-        internal IMVCGridDefinition GridDefinition { get; set; }
-        public HttpContext CurrentHttpContext { get; set; }
+        public IMVCGridDefinition GridDefinition { get; set; }
+        //public HttpContext CurrentHttpContext { get; set; }
         public QueryOptions QueryOptions { get; set; }
-        public System.Web.Mvc.UrlHelper UrlHelper { get; set; }
         public string GridName { get; set; }
 
         public IEnumerable<IMVCGridColumn> GetVisibleColumns()

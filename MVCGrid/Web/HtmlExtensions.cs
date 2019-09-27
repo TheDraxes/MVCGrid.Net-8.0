@@ -33,12 +33,10 @@ namespace MVCGrid.Web
         internal static IHtmlString MVCGrid(this HtmlHelper helper, string name, IMVCGridDefinition grid, object pageParameters)
         {
             GridEngine ge = new GridEngine();
-
-            string html = ge.GetBasePageHtml(helper, name, grid, pageParameters);
+            ControllerContext context = helper.ViewContext.Controller.ControllerContext;
+            string html = ge.GetBasePageHtml(/*helper, */HttpContext.Current.Request.QueryString ,name, grid, pageParameters);
 
             return MvcHtmlString.Create(html);
-        }
-
-        
+        }       
     }
 }

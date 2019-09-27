@@ -8,6 +8,8 @@ using System.Reflection;
 using MVCGrid.Web;
 using MVCGrid.Models;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using MVCGrid.NetCore.Helpers;
 
 namespace MVCGrid.NetCore
 {
@@ -18,7 +20,16 @@ namespace MVCGrid.NetCore
             app.Run(async context =>
             {
                 string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
+                script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
+                context.Response.ContentType = "text/javascript";
                 await context.Response.WriteAsync(script);
+            });
+        }
+        private static void HandleGridReqeust(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                
             });
         }
 
@@ -35,7 +46,7 @@ namespace MVCGrid.NetCore
 
             return assembly.GetManifestResourceStream(resourcePath);
         }
-        public static string GetResourceFileContentAsString(string thenamespace, string fileName)
+        static string GetResourceFileContentAsString(string thenamespace, string fileName)
         {
             Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
             var resourceName = thenamespace + "." + fileName;
@@ -59,7 +70,9 @@ namespace MVCGrid.NetCore
 
         public static IApplicationBuilder UseMvcGrid(this IApplicationBuilder app)
         {
+            HttpHelper.Configure(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
             GridRegistration.RegisterAllGrids();
+            app.Map("/MVCGridHandler.axd", HandleGridReqeust);
             return app.Map("/MVCGrid.js", HandleScriptJs);
         }
     }

@@ -11,7 +11,7 @@ namespace MVCGrid.Models
 {
     public abstract class GridDefinitionBase
     {
-        internal abstract List<Row> GetData(GridContext context, out int? totalRecords);
+        public abstract List<Row> GetData(GridContext context, out int? totalRecords);
     }
 
     public class GridDefinition<T1> : GridDefinitionBase, IMVCGridDefinition
@@ -128,7 +128,7 @@ namespace MVCGrid.Models
         /// </summary>
         public Func<T1, GridContext, string> RowCssClassExpression { get; set; }
 
-        internal override List<Row> GetData(GridContext context, out int? totalRecords)
+        public override List<Row> GetData(GridContext context, out int? totalRecords)
         {
             List<Row> resultRows = new List<Row>();
 

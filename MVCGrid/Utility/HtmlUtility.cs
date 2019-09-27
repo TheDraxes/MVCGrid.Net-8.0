@@ -65,7 +65,7 @@ namespace MVCGrid.Utility
             return String.Format("MVCGrid.setSort(\"{0}\", \"{1}\", \"{2}\"); return false;", gridName, columnName, direction.ToString());
         }
 
-        public static string GetHandlerPath()
+        public static string GetHandlerPath(string applicationPath = "")
         {
             string appPath = System.Web.HttpContext.Current.Request.ApplicationPath.TrimEnd('/');
             return appPath + "/MVCGridHandler.axd";

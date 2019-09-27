@@ -19,13 +19,5 @@ namespace MVCGrid.Models
         public dynamic Item { get; set; }
         public GridContext GridContext { get; set; }
         public Row Row { get; set; }
-
-        public UrlHelper Url
-        {
-            get
-            {
-                return GridContext.UrlHelper;
-            }
-        }
     }
 }

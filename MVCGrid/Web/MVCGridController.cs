@@ -19,11 +19,11 @@ namespace MVCGrid.Web
             HttpContext context = System.Web.HttpContext.Current;
             string gridName = context.Request.QueryString["Name"];
             IMVCGridDefinition grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
-            QueryOptions options = QueryStringParser.ParseOptions(grid, context.Request);
-            GridContext gridContext = GridContextUtility.Create(context, gridName, grid, options);
+            QueryOptions options = QueryStringParser.ParseOptions(grid, context.Request.QueryString);
+            GridContext gridContext = GridContextUtility.Create(/*context, */gridName, grid, options);
 
             GridEngine engine = new GridEngine();
-            if (!engine.CheckAuthorization(gridContext))
+            if (!engine.CheckAuthorization(gridContext, context.User.Identity.IsAuthenticated))
             {
                 return new HttpStatusCodeResult(403, "Access denied");
             }
