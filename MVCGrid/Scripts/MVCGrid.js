@@ -5,18 +5,19 @@ var MVCGrid = new function () {
     var controllerPath = '%%CONTROLLERPATH%%';
     var showErrorDetails = %%ERRORDETAILS%%;
     var currentGrids = [];
+    var queryOptions = {};
 
     // public
     this.init = function () {
         $('.MVCGridContainer').each(function () {
 
             var mvcGridName = $("#" + this.id).find("input[name='MVCGridName']").val();
-
             var jsonData = $('#' + 'MVCGrid_' + mvcGridName + '_JsonData').html();
 
             currentGrids.push(
                 $.parseJSON(jsonData)
             );
+            queryOptions[mvcGridName] = {};
         });
 
         for (var i = 0; i < currentGrids.length; i++) {
@@ -30,18 +31,18 @@ var MVCGrid = new function () {
         bindToolbarEvents();
     };
 
-    var applyBoundFilters = function (mvcGridName){
+    var applyBoundFilters = function (mvcGridName) {
 
         var o = {};
 
         $("[data-mvcgrid-type='filter']").each(function () {
 
-            var gridName =  getGridName($(this));
-            if (gridName == mvcGridName){
+            var gridName = getGridName($(this));
+            if (gridName == mvcGridName) {
 
                 var option = $(this).attr('data-mvcgrid-option');
                 var val = $(this).val();
-            
+
                 o[option] = val;
             }
         });
@@ -49,9 +50,9 @@ var MVCGrid = new function () {
         MVCGrid.setFilters(mvcGridName, o);
     };
 
-    var loadBoundFilters = function(){
+    var loadBoundFilters = function () {
         $("[data-mvcgrid-type='filter']").each(function () {
-            var gridName =  getGridName($(this));
+            var gridName = getGridName($(this));
             var option = $(this).attr('data-mvcgrid-option');
 
             var val = MVCGrid.getFilters(gridName)[option];
@@ -59,17 +60,16 @@ var MVCGrid = new function () {
         });
     };
 
-    var applyAdditionalQueryOptions = function (mvcGridName){
+    var applyAdditionalQueryOptions = function (mvcGridName) {
 
         var o = {};
-
         $("[data-mvcgrid-type='additionalQueryOption']").each(function () {
-            var gridName =  getGridName($(this));
+            var gridName = getGridName($(this));
 
-            if (gridName == mvcGridName){
+            if (gridName == mvcGridName) {
                 var option = $(this).attr('data-mvcgrid-option');
                 var val = $(this).val();
-            
+
                 o[option] = val;
             }
         });
@@ -77,9 +77,9 @@ var MVCGrid = new function () {
         MVCGrid.setAdditionalQueryOptions(mvcGridName, o);
     };
 
-    var loadAdditionalQueryOptions = function(){
+    var loadAdditionalQueryOptions = function () {
         $("[data-mvcgrid-type='additionalQueryOption']").each(function () {
-            var gridName =  getGridName($(this));
+            var gridName = getGridName($(this));
             var option = $(this).attr('data-mvcgrid-option');
 
             var val = MVCGrid.getAdditionalQueryOptions(gridName)[option];
@@ -87,16 +87,16 @@ var MVCGrid = new function () {
         });
     };
 
-    var getGridName = function(elem){
+    var getGridName = function (elem) {
         var gridName = currentGrids[0].name;
-        var nameAttr =  elem.attr('data-mvcgrid-name');
+        var nameAttr = elem.attr('data-mvcgrid-name');
         if (typeof nameAttr !== typeof undefined && nameAttr !== false) {
             gridName = nameAttr;
         }
         return gridName;
     };
 
-    var bindToolbarEvents = function (){
+    var bindToolbarEvents = function () {
 
         loadBoundFilters();
         loadAdditionalQueryOptions();
@@ -106,11 +106,10 @@ var MVCGrid = new function () {
             var eventName = $(this).attr("data-mvcgrid-apply-filter");
 
             $(this).on(eventName, function () {
-                var gridName =  getGridName($(this));
+                var gridName = getGridName($(this));
 
                 applyBoundFilters(gridName);
             });
-
         });
 
         $("[data-mvcgrid-apply-additional]").each(function () {
@@ -118,17 +117,16 @@ var MVCGrid = new function () {
             var eventName = $(this).attr("data-mvcgrid-apply-additional");
 
             $(this).on(eventName, function () {
-                var gridName =  getGridName($(this));
+                var gridName = getGridName($(this));
 
                 applyAdditionalQueryOptions(gridName);
             });
-
         });
 
         $("[data-mvcgrid-type='export']").each(function () {
 
             $(this).click(function () {
-                var gridName =  getGridName($(this));
+                var gridName = getGridName($(this));
 
                 location.href = MVCGrid.getExportUrl(gridName);
             });
@@ -136,12 +134,12 @@ var MVCGrid = new function () {
         });
 
         $("[data-mvcgrid-type='pageSize']").each(function () {
-            
-            var gridName =  getGridName($(this));
+
+            var gridName = getGridName($(this));
             $(this).val(MVCGrid.getPageSize(gridName));
 
             $(this).change(function () {
-                var gridName =  getGridName($(this));
+                var gridName = getGridName($(this));
                 MVCGrid.setPageSize(gridName, $(this).val());
             });
 
@@ -152,11 +150,11 @@ var MVCGrid = new function () {
         $("[data-mvcgrid-type='columnVisibilityList']").each(function () {
 
             var listElement = $(this);
-            var gridName =  getGridName($(this));
+            var gridName = getGridName($(this));
 
             var colVis = MVCGrid.getColumnVisibility(gridName);
             $.each(colVis, function (colName, col) {
-                
+
                 if (!col.visible && !col.allow) {
                     return true;
                 }
@@ -171,10 +169,10 @@ var MVCGrid = new function () {
                 listElement.append(html);
             });
 
-            $("input:checkbox[name='" + gridName + "cols']").change(function() {
+            $("input:checkbox[name='" + gridName + "cols']").change(function () {
                 var jsonData = {};
                 var gridName = getGridName($(this).closest('ul'));
-                
+
                 $("input:checkbox[name='" + gridName + "cols']:checked").each(function () {
                     var columnName = $(this).val();
                     jsonData[columnName] = true;
@@ -186,7 +184,7 @@ var MVCGrid = new function () {
     };
 
     // private
-    var getClientData = function (mvcGridName){
+    var getClientData = function (mvcGridName) {
         var jsonData = $('#' + 'MVCGrid_' + mvcGridName + '_ContextJsonData').html();
 
         return $.parseJSON(jsonData);
@@ -204,57 +202,11 @@ var MVCGrid = new function () {
             }
         }
 
-        if (gridDef == undefined){
+        if (gridDef == undefined) {
             window.console && console.log('Grid not found: ' + mvcGridName);
         }
 
         return gridDef;
-    };
-
-    // private
-    var updateURLParameter = function (url, param, paramVal) {
-
-        paramVal = encodeURIComponent(paramVal);
-
-        param = param.toLowerCase();
-
-        var TheAnchor = null;
-        var newAdditionalURL = "";
-        var tempArray = url.split("?");
-        var baseURL = tempArray[0];
-        var additionalURL = tempArray[1];
-        var temp = "";
-
-        if (additionalURL) {
-            var tmpAnchor = additionalURL.split("#");
-            var TheParams = tmpAnchor[0];
-            TheAnchor = tmpAnchor[1];
-            if (TheAnchor)
-                additionalURL = TheParams;
-
-            tempArray = additionalURL.split("&");
-
-            for (i = 0; i < tempArray.length; i++) {
-                if (tempArray[i].split('=')[0] != param) {
-                    newAdditionalURL += temp + tempArray[i];
-                    temp = "&";
-                }
-            }
-        }
-        else {
-            var tmpAnchor = baseURL.split("#");
-            var TheParams = tmpAnchor[0];
-            TheAnchor = tmpAnchor[1];
-
-            if (TheParams)
-                baseURL = TheParams;
-        }
-
-        if (TheAnchor)
-            paramVal += "#" + TheAnchor;
-
-        var rows_txt = temp + "" + param + "=" + paramVal;
-        return baseURL + "?" + newAdditionalURL + rows_txt;
     };
 
     // public
@@ -265,9 +217,6 @@ var MVCGrid = new function () {
 
     // public
     this.setColumnVisibility = function (mvcGridName, obj) {
-
-        var gridDef = findGridDef(mvcGridName);
-
         var colString = '';
         $.each(obj, function (k, v) {
             if (v) {
@@ -276,13 +225,8 @@ var MVCGrid = new function () {
             }
         });
 
-        var newUrl = window.location.href;
-
-        $.each(obj, function (k, v) {
-            newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + 'cols', colString);
-        });
-
-        setURLAndReload(mvcGridName, newUrl);
+        queryOptions[mvcGridName].cols = colString;
+        MVCGrid.reloadGrid(mvcGridName);
     };
 
     // public
@@ -293,16 +237,7 @@ var MVCGrid = new function () {
 
     // public
     this.setFilters = function (mvcGridName, obj) {
-
-        var gridDef = findGridDef(mvcGridName);
-
-        var newUrl = window.location.href;
-
-        $.each(obj, function (k, v) {
-            newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + k, v);
-        });
-
-        setURLAndReload(mvcGridName, newUrl);
+        setAdditionalQueryOptions(mvcGridName, obj);
     };
 
     // public
@@ -319,15 +254,9 @@ var MVCGrid = new function () {
 
     // public
     this.setSort = function (mvcGridName, sortColumn, sortDirection) {
-
-        var gridDef = findGridDef(mvcGridName);
-
-        var newUrl = window.location.href;
-        newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + 'sort', sortColumn);
-        newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + 'dir', sortDirection);
-
-        
-        setURLAndReload(mvcGridName, newUrl);
+        queryOptions[mvcGridName].sort = sortColumn;
+        queryOptions[mvcGridName].dir = sortDirection;
+        MVCGrid.reloadGrid(mvcGridName);
     };
 
     // public
@@ -338,12 +267,8 @@ var MVCGrid = new function () {
 
     // public
     this.setPage = function (mvcGridName, pageNumber) {
-
-        var gridDef = findGridDef(mvcGridName);
-
-        var newUrl = window.location.href;
-        newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + 'page', pageNumber);
-        setURLAndReload(mvcGridName, newUrl);
+        queryOptions[mvcGridName].page = pageNumber;
+        MVCGrid.reloadGrid(mvcGridName);
     };
 
     // public
@@ -354,12 +279,8 @@ var MVCGrid = new function () {
 
     // public
     this.setPageSize = function (mvcGridName, pageSize) {
-
-        var gridDef = findGridDef(mvcGridName);
-
-        var newUrl = window.location.href;
-        newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + 'pagesize', pageSize);
-        setURLAndReload(mvcGridName, newUrl);
+        queryOptions[mvcGridName].pagesize = pageSize;
+        MVCGrid.reloadGrid(mvcGridName);
     };
 
     // public
@@ -370,33 +291,14 @@ var MVCGrid = new function () {
 
     // public
     this.setAdditionalQueryOptions = function (mvcGridName, obj) {
-
-        var gridDef = findGridDef(mvcGridName);
-
-        var newUrl = window.location.href;
-
         $.each(obj, function (k, v) {
-            newUrl = updateURLParameter(newUrl, gridDef.qsPrefix + k, v);
+            queryOptions[mvcGridName][k] = v;
         });
-
-        setURLAndReload(mvcGridName, newUrl);
-    };
-
-    // private
-    var setURLAndReload = function (mvcGridName, newUrl) {
-
-        if (history.pushState) {
-            window.history.pushState({ path: newUrl }, '', newUrl);
-            MVCGrid.reloadGrid(mvcGridName);
-        }
-        else {
-            location.href = newUrl;
-        }
-
+        MVCGrid.reloadGrid(mvcGridName);
     };
 
     // public
-    this.reloadGrid = function(mvcGridName){
+    this.reloadGrid = function (mvcGridName) {
         var tableHolderHtmlId = 'MVCGridTableHolder_' + mvcGridName;
         var loadingHtmlId = 'MVCGrid_Loading_' + mvcGridName;
         var errorHtmlId = 'MVCGrid_ErrorMessage_' + mvcGridName;
@@ -409,7 +311,6 @@ var MVCGrid = new function () {
             ajaxBaseUrl = controllerPath;
         }
 
-
         var fullAjaxUrl = ajaxBaseUrl + location.search;
 
         $.each(gridDef.pageParameters, function (k, v) {
@@ -417,16 +318,18 @@ var MVCGrid = new function () {
             fullAjaxUrl = updateURLParameter(fullAjaxUrl, thisPP, v);
         });
 
+        queryOptions[mvcGridName].Name = mvcGridName;
+
         $.ajax({
             type: "GET",
             url: fullAjaxUrl,
-            data: { 'Name': mvcGridName },
+            data: queryOptions[mvcGridName],
             cache: false,
             beforeSend: function () {
                 if (gridDef.clientLoading != '') {
                     window[gridDef.clientLoading]();
                 }
-                
+
                 $('#' + loadingHtmlId).css("visibility", "visible");
             },
             success: function (result) {
@@ -435,13 +338,13 @@ var MVCGrid = new function () {
             error: function (request, status, error) {
                 var errorhtml = $('#' + errorHtmlId).html();
 
-                if (showErrorDetails){
+                if (showErrorDetails) {
                     $('#' + tableHolderHtmlId).html(request.responseText);
-                }else{
+                } else {
                     $('#' + tableHolderHtmlId).html(errorhtml);
                 }
             },
-            complete: function() {
+            complete: function () {
                 if (gridDef.clientLoadingComplete != '') {
                     window[gridDef.clientLoadingComplete]();
                 }
@@ -474,7 +377,6 @@ var MVCGrid = new function () {
         return fullExportUrl;
     };
 };
-
 
 $(function () {
     MVCGrid.init();
