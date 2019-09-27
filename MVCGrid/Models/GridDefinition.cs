@@ -43,7 +43,7 @@ namespace MVCGrid.Models
             this.ClientSideLoadingMessageFunctionName = gridDefaults.ClientSideLoadingMessageFunctionName;
             this.ClientSideLoadingCompleteFunctionName = gridDefaults.ClientSideLoadingCompleteFunctionName;
             this.Filtering = gridDefaults.Filtering;
-            //this.RenderingEngine = gridDefaults.RenderingEngine;
+            this.RenderingEngine = gridDefaults.RenderingEngine;
             this.TemplatingEngine = gridDefaults.TemplatingEngine;
             this.AdditionalSettings = gridDefaults.AdditionalSettings;
             this.RenderingMode = gridDefaults.RenderingMode;
