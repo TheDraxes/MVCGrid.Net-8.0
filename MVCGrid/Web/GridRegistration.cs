@@ -34,8 +34,8 @@ namespace MVCGrid.Web
         {
             // Go through all assemblies referenced by the application and search for types matching a predicate
             IEnumerable<Type> typesSoFar = Type.EmptyTypes;
+            ICollection assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-            ICollection assemblies = System.Web.Compilation.BuildManager.GetReferencedAssemblies();
             foreach (Assembly assembly in assemblies)
             {
                 Type[] typesInAsm;

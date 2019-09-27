@@ -354,7 +354,7 @@ namespace MVCGrid.Models
         /// </summary>
         public AuthorizationType AuthorizationType { get; set; }
 
-        public RenderingEngineCollection RenderingEngines { get; set; }
+        public RenderingEngineCollection RenderingEngines { get; set; } = new RenderingEngineCollection();
         public string DefaultRenderingEngineName { get; set; }
     }
 

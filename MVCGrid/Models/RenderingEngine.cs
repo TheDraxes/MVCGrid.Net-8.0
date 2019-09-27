@@ -34,6 +34,10 @@ namespace MVCGrid.Models
 
     public class RenderingEngineCollection : Dictionary<string, RenderingEngine>
     {
+        public RenderingEngineCollection() : base()
+        {
+
+        }
         public void Add(RenderingEngine renderingEngine)
         {
             base.Add(renderingEngine.Name, renderingEngine);

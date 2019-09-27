@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using MVCGrid.Web;
 using MVCGrid.Models;
+using System.Linq;
 
 namespace MVCGrid.NetCore
 {
@@ -16,21 +17,38 @@ namespace MVCGrid.NetCore
         {
             app.Run(async context =>
             {
-                string script = GetScript();
+                string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
                 await context.Response.WriteAsync(script);
             });
         }
 
-        public static string GetScript()
+        static Stream GetResourceStream(string resourcePath)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MVCGrid.Scripts.js";
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            List<string> resourceNames = new List<string>(assembly.GetManifestResourceNames());
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
+            resourcePath = resourcePath.Replace(@"/", ".");
+            resourcePath = resourceNames.FirstOrDefault(r => r.Contains(resourcePath));
+
+            if (resourcePath == null)
+                throw new FileNotFoundException("Resource not found");
+
+            return assembly.GetManifestResourceStream(resourcePath);
+        }
+        public static string GetResourceFileContentAsString(string thenamespace, string fileName)
+        {
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            var resourceName = thenamespace + "." + fileName;
+
+            string resource = null;
+            using (Stream stream = GetResourceStream(resourceName))
             {
-                return reader.ReadToEnd();
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    resource = reader.ReadToEnd();
+                }
             }
+            return resource;
         }
 
         public static IApplicationBuilder RegisterMVCGrid<T>(this IApplicationBuilder app, string name, MVCGridBuilder<T> builder)
