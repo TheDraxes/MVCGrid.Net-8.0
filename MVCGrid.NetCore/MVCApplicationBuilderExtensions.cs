@@ -86,6 +86,7 @@ namespace MVCGrid.NetCore
             {
                 string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
                 script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
+                script = script.Replace("%%ERRORDETAILS%%", "''");
                 context.Response.ContentType = "text/javascript";
                 await context.Response.WriteAsync(script);
             });
