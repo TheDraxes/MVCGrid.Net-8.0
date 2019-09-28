@@ -27,13 +27,6 @@ namespace MVCGrid.Web
                     "name");
             }
 
-            if (mapping.RetrieveData == null)
-            {
-                throw new ArgumentException(
-                    String.Format("There is no RetrieveData expression defined for grid '{0}'.", name),
-                    "RetrieveData");
-            }
-
             if (mapping.Sorting && String.IsNullOrWhiteSpace(mapping.DefaultSortColumn))
             {
                 throw new Exception(
