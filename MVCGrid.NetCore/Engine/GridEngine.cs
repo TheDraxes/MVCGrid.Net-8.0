@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Http;
 using MVCGrid.NetCore.Helpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVCGrid.NetCore.Utility;
+using GridContextUtility = MVCGrid.NetCore.Utility.GridContextUtility;
 
 namespace MVCGrid.NetCore.Engine
 {
