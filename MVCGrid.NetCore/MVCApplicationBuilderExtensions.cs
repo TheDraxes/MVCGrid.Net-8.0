@@ -15,24 +15,6 @@ namespace MVCGrid.NetCore
 {
     public static class MVCApplicationBuilderExtensions
     {
-        private static void HandleScriptJs(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
-                script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
-                context.Response.ContentType = "text/javascript";
-                await context.Response.WriteAsync(script);
-            });
-        }
-        private static void HandleGridReqeust(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                
-            });
-        }
-
         static Stream GetResourceStream(string resourcePath)
         {
             Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
@@ -61,19 +43,65 @@ namespace MVCGrid.NetCore
             }
             return resource;
         }
-
-        public static IApplicationBuilder RegisterMVCGrid<T>(this IApplicationBuilder app, string name, MVCGridBuilder<T> builder)
+        static byte[] GetResourceFileContentAsByteArray(string thenamespace, string fileName)
         {
-            MVCGridDefinitionTable.Add(name, builder);
-            return app;
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            var resourceName = thenamespace + "." + fileName;
+
+            byte[] bytes;
+            using (Stream stream = GetResourceStream(resourceName))
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    stream.CopyTo(memoryStream);
+                    bytes = memoryStream.ToArray();
+                }
+            }
+            return bytes;
         }
 
-        public static IApplicationBuilder UseMvcGrid(this IApplicationBuilder app)
+        public static void RegisterMVCGrid<T>(this IApplicationBuilder app, string name, MVCGridBuilder<T> builder)
+        {
+            MVCGridDefinitionTable.Add(name, builder);
+        }
+
+        public static void HandleMVCGrid(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                string path = context.Request.PathBase.Value;
+                if (path.Contains(".gif") || path.Contains(".png") || path.Contains(".jpg"))
+                {
+                    path = "Images" + path.Replace("/MVCGridHandler.axd", string.Empty);
+                    byte[] image = GetResourceFileContentAsByteArray("MVCGrid", path);
+                    context.Response.ContentType = "image/png";
+                    await context.Response.Body.WriteAsync(image, 0, image.Length);
+                }
+            });
+        }
+
+        public static void HandleMVCGridScript(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
+                script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
+                context.Response.ContentType = "text/javascript";
+                await context.Response.WriteAsync(script);
+            });
+        }
+
+        public static void UseMvcGrid(this IApplicationBuilder app)
         {
             HttpHelper.Configure(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
             GridRegistration.RegisterAllGrids();
-            app.Map("/MVCGridHandler.axd", HandleGridReqeust);
-            return app.Map("/MVCGrid.js", HandleScriptJs);
+            
+            app.Map("/MVCGrid.js", HandleMVCGridScript);
+            app.Map("/MVCGridHandler.axd/sortup.png", HandleMVCGrid);
+            app.Map("/MVCGridHandler.axd/sortdown.png", HandleMVCGrid);
+            app.Map("/MVCGridHandler.axd/sort.png", HandleMVCGrid);
+            app.Map("/MVCGridHandler.axd/ajaxloader.gif", HandleMVCGrid);
+            app.Map("/ajaxloader.gif", HandleMVCGrid);
         }
     }
 }

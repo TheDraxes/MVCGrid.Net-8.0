@@ -33,6 +33,10 @@ namespace MVCGrid.Net_Core_Example
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddHttpsRedirection(options =>
+            {
+                options.HttpsPort = 443;
+            });
             services.AddMvcGrid();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -40,6 +44,9 @@ namespace MVCGrid.Net_Core_Example
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.RegisterMVCGrid("TestGrid", GridTest.Test());
+            //app.UseMvcGrid();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,12 +59,16 @@ namespace MVCGrid.Net_Core_Example
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ServeUnknownFileTypes = true,
+            });
             app.UseCookiePolicy();
 
-            app.UseMvcWithDefaultRoute();
             app.RegisterMVCGrid("TestGrid", GridTest.Test());
             app.UseMvcGrid();
+
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

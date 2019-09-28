@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Http;
 using MVCGrid.NetCore.Helpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MVCGrid.NetCore.Utility;
 
 namespace MVCGrid.NetCore.Engine
 {
@@ -100,9 +101,8 @@ namespace MVCGrid.NetCore.Engine
         private RenderingModel PrepModel(int? totalRecords, List<Row> rows, MVCGrid.Models.GridContext gridContext)
         {
             RenderingModel model = new RenderingModel();
-
-            string applicationPath = HttpHelper.HttpContext.Request.Host.Value;
-            model.HandlerPath = HtmlUtility.GetHandlerPath(applicationPath);
+            string rootUrl = HtmlNetCoreUtility.GetRootUrl();
+            model.HandlerPath = HtmlUtility.GetHandlerPath(rootUrl);
             model.TableHtmlId = HtmlUtility.GetTableHtmlId(gridContext.GridName);
 
             PrepColumns(gridContext, model);
@@ -217,7 +217,8 @@ namespace MVCGrid.NetCore.Engine
                 }
             }
 
-            string baseGridHtml = MVCGridHtmlGenerator.GenerateBasePageHtml(gridName, grid, pageParameters, HttpHelper.HttpContext.Request.Host.Value);
+            string rootUrl = HtmlNetCoreUtility.GetRootUrl();
+            string baseGridHtml = MVCGridHtmlGenerator.GenerateBasePageHtml(gridName, grid, pageParameters, HtmlUtility.GetHandlerPath(rootUrl));
             baseGridHtml = baseGridHtml.Replace("%%PRELOAD%%", preload);
 
             ContainerRenderingModel containerRenderingModel = new ContainerRenderingModel() { InnerHtmlBlock = baseGridHtml };

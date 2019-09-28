@@ -70,9 +70,9 @@ namespace MVCGrid.Utility
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath.TrimEnd('/');
             return applicationPath + "/MVCGridHandler.axd";
         }
-        public static string GetHandlerPath(string applicationPath)
+        public static string GetHandlerPath(string rootUrl)
         {
-            return applicationPath + "/MVCGridHandler.axd";
+            return rootUrl + "/MVCGridHandler.axd";
         }
     }
 }
