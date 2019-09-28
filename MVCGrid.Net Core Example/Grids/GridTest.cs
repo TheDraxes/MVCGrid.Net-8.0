@@ -25,6 +25,8 @@ namespace MVCGrid.Net_Core_Example.Grids
                 .WithAdditionalQueryOptionNames("search")
                 .AddColumns(cols =>
                 {
+                    cols.Add("Id").WithValueExpression((p, c) => p.Id.ToString())
+                        .WithAllowChangeVisibility(true);
                     cols.Add("FirstName").WithHeaderText("First Name")
                         .WithVisibility(true, true)
                         .WithValueExpression(p => p.FirstName);
@@ -53,27 +55,32 @@ namespace MVCGrid.Net_Core_Example.Grids
                 //.WithAdditionalSetting(MVCGrid.Rendering.BootstrapRenderingEngine.SettingNameTableClass, "notreal") // Example of changing table css class
                 .WithRetrieveDataMethod((context) =>
                 {
-                    Person person = new Person()
-                    {
-                        Id = 0,
-                        FirstName = "Alpha",
-                        LastName = "Test",
-                        Active = true,
-                        Email = "test@gmail.com",
-                        Employee = true,
-                        Gender = "Male",
-                        StartDate = DateTime.Now,
-                    };
+                    QueryOptions queryOptions = context.QueryOptions;
+                    int pageIndex = queryOptions.PageIndex.Value;
+                    int pageSize = queryOptions.ItemsPerPage.Value;
+                    int totalCount = 120;
                     List<Person> persons = new List<Person>();
-                    for (int x = 0; 15 > x; x++)
+                    for (int x = 0; totalCount > x; x++)
                     {
+                        Person person = new Person()
+                        {
+                            Id = x,
+                            FirstName = "Alpha",
+                            LastName = "Shabazz",
+                            Active = true,
+                            Email = "test@gmail.com",
+                            Employee = true,
+                            Gender = "Male",
+                            StartDate = DateTime.Now,
+                        };
                         persons.Add(person);
                     }
+                    persons = persons.Skip(pageIndex * pageSize).Take(pageSize).ToList();
 
                     return new QueryResult<Person>()
                     {
                         Items = persons,
-                        TotalRecords = persons.Count
+                        TotalRecords = totalCount
                     };
                 });
             
