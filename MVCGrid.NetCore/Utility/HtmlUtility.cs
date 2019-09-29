@@ -10,6 +10,7 @@ namespace MVCGrid.NetCore.Utility
     {
         public static string GetRootUrl()
         {
+            return "";
             HttpRequest httpRequest = HttpHelper.HttpContext.Request;
             string applicationPath = $"{httpRequest.Scheme}://{httpRequest.Host.Value}";
             return applicationPath;

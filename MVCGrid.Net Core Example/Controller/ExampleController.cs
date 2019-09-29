@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MVCGrid.Net_Core_Example.Models;
+using MVCGrid.NetCore.SignalR;
+using MVCGrid.NetCore.SignalR.Helpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,39 @@ namespace MVCGrid.Net_Core_Example
 {
     public class ExampleController : Controller
     {
-        public IActionResult Index()
+        public IActionResult BasicExample()
         {
             return View();
         }
+        public IActionResult SignalRExample()
+        {
+            return View();
+        }
+        public async Task<IActionResult> SignalRTest()
+        {
+            await SignalRHelper.SendGridData("TestGrid2", "", "");
+            Task task = Task.Run(SignalRTestJob);
+            return Content(string.Empty);
+        }
+        public async Task SignalRTestJob()
+        {
+            for (int x=0; 5 > x; x++)
+            {
+                Person person = new Person()
+                {
+                    Id = x,
+                    FirstName = "Alpha",
+                    LastName = "Shabazz",
+                    Active = true,
+                    Email = "test@gmail.com",
+                    Employee = true,
+                    Gender = "Male",
+                    StartDate = DateTime.Now,
+                };
+                MVCGridSignalR.SignalRGridSessions["TestGrid2"].Data.Add(person);
+                await Task.Delay(1000); 
+            }
+        }
+
     }
 }

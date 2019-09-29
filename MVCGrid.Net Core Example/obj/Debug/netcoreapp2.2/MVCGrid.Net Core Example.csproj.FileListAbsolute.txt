@@ -34,4 +34,5 @@ X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Exam
 X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.CopyComplete
 X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
 X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
-X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\Index.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\BasicExample.g.cshtml.cs
+X:\Users\AlphaPC\Source\Repos\johnsonalpha\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\SignalRExample.g.cshtml.cs

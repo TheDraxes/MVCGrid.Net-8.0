@@ -33,6 +33,13 @@ namespace MVCGrid.Web
                     String.Format("Grid '{0}': When sorting is enabled, a default sort column must be specified", name));
             }
 
+            if (mapping.RetrieveData == null)
+            {
+                throw new ArgumentException(
+                    String.Format("There is no RetrieveData expression defined for grid '{0}'.", name),
+                    "RetrieveData");
+            }
+
             if (mapping.AdditionalQueryOptionNames.Count > 0)
             {
                 // TODO: dynamically get names

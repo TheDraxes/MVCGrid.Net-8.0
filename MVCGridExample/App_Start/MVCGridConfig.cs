@@ -29,7 +29,6 @@ namespace MVCGridExample
                 .WithAuthorizationType(AuthorizationType.AllowAnonymous)
                 .WithSorting(sorting: true, defaultSortColumn: "Id", defaultSortDirection: SortDirection.Dsc)
                 .WithPaging(paging: true, itemsPerPage: 10, allowChangePageSize: true, maxItemsPerPage: 100)
-                .WithAdditionalQueryOptionNames("search")
                 .AddColumns(cols =>
                 {
                     cols.Add("Id").WithValueExpression((p, c) => UrlHelper.Action("detail", "demo", new { id = p.Id }))
@@ -820,7 +819,6 @@ namespace MVCGridExample
                     cols.Add("LastName").WithHeaderText("Last Name")
                         .WithValueExpression(p => p.LastName);
                 })
-                .WithAdditionalQueryOptionNames("Search")
                 .WithAdditionalSetting("RenderLoadingDiv", false)
                 .WithSorting(true, "LastName")
                 .WithPaging(true, 10, true, 100)
@@ -1068,7 +1066,6 @@ namespace MVCGridExample
                     cols.Add("LastName").WithHeaderText("Last Name")
                         .WithValueExpression(p => p.LastName);
                 })
-                .WithAdditionalQueryOptionNames("param1", "param2", "param3")
                 .WithAdditionalSetting("RenderLoadingDiv", false)
                 .WithSorting(true, "LastName")
                 .WithPaging(true, 10, true, 100)

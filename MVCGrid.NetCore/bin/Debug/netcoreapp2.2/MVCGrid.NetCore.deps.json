@@ -1,19 +1,21 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "signature": "f473f3193523095594baf5251072e55443292943"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "MVCGrid.NetCore/1.0.0": {
         "dependencies": {
-          "MVCGrid": "1.0.0"
+          "MVCGrid": "1.0.0",
+          "Microsoft.AspNet.SignalR": "2.4.1"
         },
         "runtime": {
           "MVCGrid.NetCore.dll": {}
         }
       },
+      "Microsoft.AspNet.SignalR/2.4.1": {},
       "MVCGrid/1.0.0": {
         "dependencies": {
           "System.Web.Mvc": "3.0.0.0"
@@ -37,6 +39,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AspNet.SignalR/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aYbLVE5toZwv/qaQ0BiIZRRwN/00WKYzGjaYUWIQuI91xZ50nnAymWD1sxCZFN9XXDRq8bevM5ET9GmAeOI/Nw==",
+      "path": "microsoft.aspnet.signalr/2.4.1",
+      "hashPath": "microsoft.aspnet.signalr.2.4.1.nupkg.sha512"
     },
     "MVCGrid/1.0.0": {
       "type": "project",

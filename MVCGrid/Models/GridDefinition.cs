@@ -16,6 +16,7 @@ namespace MVCGrid.Models
 
     public class GridDefinition<T1> : GridDefinitionBase, IMVCGridDefinition
     {
+
         public GridDefinition() : this(null)
         {
         }
@@ -131,6 +132,11 @@ namespace MVCGrid.Models
         public override List<Row> GetData(GridContext context, out int? totalRecords)
         {
             List<Row> resultRows = new List<Row>();
+            if (RetrieveData == null)
+            {
+                totalRecords = 0;
+                return resultRows;
+            }
 
             var queryResult = RetrieveData(context);
             totalRecords = queryResult.TotalRecords;

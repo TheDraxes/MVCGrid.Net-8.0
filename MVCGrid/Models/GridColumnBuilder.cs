@@ -243,5 +243,14 @@ namespace MVCGrid.Models
             GridColumn.AllowChangeVisibility = allow;
             return this;
         }
+
+        /// <summary>
+        /// Specifies whether or not the field can be searched.
+        /// </summary>
+        public GridColumnBuilder<T1> WithSearchable(bool allow)
+        {
+            GridColumn.AllowSearchable = allow;
+            return this;
+        }
     }
 }

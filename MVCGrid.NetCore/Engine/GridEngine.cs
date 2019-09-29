@@ -65,9 +65,7 @@ namespace MVCGrid.NetCore.Engine
 
             string typeString = gridDefinition.RenderingEngines[engineName].Type;
             Type engineType = Type.GetType(typeString, true);
-
             IMVCGridRenderingEngine renderingEngine = (IMVCGridRenderingEngine)Activator.CreateInstance(engineType, true);
-
             return renderingEngine;
         }
 
@@ -154,7 +152,7 @@ namespace MVCGrid.NetCore.Engine
             return model;
         }
 
-        private void PrepColumns(Models.GridContext gridContext, RenderingModel model)
+        private void PrepColumns(GridContext gridContext, RenderingModel model)
         {
             foreach (var col in gridContext.GetVisibleColumns())
             {
@@ -293,7 +291,7 @@ namespace MVCGrid.NetCore.Engine
 
             switch (grid.RenderingMode)
             {
-                case Models.RenderingMode.RenderingEngine:
+                case RenderingMode.RenderingEngine:
                     preload = RenderUsingRenderingEngine(engine, gridContext);
                     break;
                 // TODO: Enable support for controller rendering
@@ -306,7 +304,7 @@ namespace MVCGrid.NetCore.Engine
             return preload;
         }
 
-        private static string RenderUsingController(GridEngine engine, Models.GridContext gridContext)
+        private static string RenderUsingController(GridEngine engine, GridContext gridContext)
         {
             return string.Empty;
             //var model = engine.GenerateModel(gridContext);

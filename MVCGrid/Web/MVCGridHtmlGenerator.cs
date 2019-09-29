@@ -137,7 +137,7 @@ namespace MVCGrid.Web
 
             StringBuilder sbHtml = new StringBuilder();
 
-            sbHtml.AppendFormat("<div id='{0}' class='{1}'>", HtmlUtility.GetContainerHtmlId(gridName), HtmlUtility.ContainerCssClass);
+            sbHtml.AppendFormat("<div id='{0}' data-uid='' class='{1}'>", HtmlUtility.GetContainerHtmlId(gridName), HtmlUtility.ContainerCssClass);
 
             sbHtml.AppendFormat("<input type='hidden' name='MVCGridName' value='{0}' />", gridName);
             sbHtml.AppendFormat("<div id='MVCGrid_{0}_JsonData' style='display: none'>{1}</div>", gridName, definitionJson);

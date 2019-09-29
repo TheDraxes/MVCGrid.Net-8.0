@@ -7,12 +7,13 @@ using System.Text;
 
 namespace MVCGrid.NetCore.Helpers
 {
-    public static class HttpHelper
+    public static partial class HttpHelper
     {
         private static IHttpContextAccessor _accessor;
         public static void Configure(IHttpContextAccessor httpContextAccessor)
         {
             _accessor = httpContextAccessor;
+            //AppBaseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}";
         }
 
         public static HttpContext HttpContext => _accessor.HttpContext;

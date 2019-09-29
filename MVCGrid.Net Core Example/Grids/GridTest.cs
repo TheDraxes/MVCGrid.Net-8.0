@@ -1,5 +1,7 @@
 ﻿using MVCGrid.Models;
 using MVCGrid.Net_Core_Example.Models;
+using MVCGrid.NetCore;
+using MVCGrid.NetCore.SignalR.Extensions;
 using MVCGrid.Web;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,6 @@ namespace MVCGrid.Net_Core_Example.Grids
                 .WithAuthorizationType(AuthorizationType.AllowAnonymous)
                 .WithSorting(sorting: true, defaultSortColumn: "Id", defaultSortDirection: SortDirection.Dsc)
                 .WithPaging(paging: true, itemsPerPage: 10, allowChangePageSize: true, maxItemsPerPage: 100)
-                .WithAdditionalQueryOptionNames("search")
                 .AddColumns(cols =>
                 {
                     cols.Add("Id").WithValueExpression((p, c) => p.Id.ToString())
@@ -84,6 +85,49 @@ namespace MVCGrid.Net_Core_Example.Grids
                     };
                 });
             
+        }
+
+        public static SignalRMVCGridBuilder Test2()
+        {
+            ColumnDefaults colDefauls = new ColumnDefaults()
+            {
+                EnableSorting = true
+            };
+
+            return new SignalRMVCGridBuilder("TestGrid2", SignalRGridType.Individual, colDefauls)
+                .WithAuthorizationType(AuthorizationType.AllowAnonymous)
+                .WithSorting(sorting: true, defaultSortColumn: "Id", defaultSortDirection: SortDirection.Dsc)
+                .WithPaging(paging: true, itemsPerPage: 10, allowChangePageSize: true, maxItemsPerPage: 100)
+                .AddColumns(cols =>
+                {
+                    cols.Add("Id").WithValueExpression((p, c) => p.Id.ToString())
+                        .WithAllowChangeVisibility(true);
+                    cols.Add("FirstName").WithHeaderText("First Name")
+                        .WithVisibility(true, true)
+                        .WithValueExpression(p => p.FirstName);
+                    cols.Add("LastName").WithHeaderText("Last Name")
+                        .WithVisibility(true, true)
+                        .WithValueExpression(p => p.LastName);
+                    cols.Add("FullName").WithHeaderText("Full Name")
+                        .WithValueTemplate("{Model.FirstName} {Model.LastName}")
+                        .WithVisibility(visible: false, allowChangeVisibility: true)
+                        .WithSorting(false);
+                    cols.Add("StartDate").WithHeaderText("Start Date")
+                        .WithVisibility(visible: true, allowChangeVisibility: true)
+                        .WithValueExpression(p => p.StartDate == null ? p.StartDate.ToShortDateString() : "");
+                    cols.Add("Status")
+                        .WithSortColumnData("Active")
+                        .WithVisibility(visible: true, allowChangeVisibility: true)
+                        .WithHeaderText("Status")
+                        .WithValueExpression(p => p.Active ? "Active" : "Inactive")
+                        .WithCellCssClassExpression(p => p.Active ? "success" : "danger");
+                    cols.Add("Gender").WithValueExpression((p, c) => p.Gender)
+                        .WithAllowChangeVisibility(true);
+                    cols.Add("Email")
+                        .WithVisibility(visible: false, allowChangeVisibility: true)
+                        .WithValueExpression(p => p.Email);
+                })
+                .ToSignalRGrid();
         }
     }
 }

@@ -67,7 +67,6 @@ namespace MVCGrid.NetCore
         {
             MVCGridDefinitionTable.Add(name, builder);
         }
-
         public static void HandleMVCGrid(IApplicationBuilder app)
         {
             app.Run(async context =>
@@ -82,44 +81,43 @@ namespace MVCGrid.NetCore
                 }
                 else
                 {
-                    string gridName = context.Request.Query["Name"];
-                    IMVCGridDefinition grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
-                    QueryOptions options = QueryStringParser.ParseOptions(grid, context.Request.ToNameValueCollection());
-                    GridContext gridContext = MVCGrid.NetCore.Utility.GridContextUtility.Create(/*context, */gridName, grid, options);
-
-                    GridEngine engine = new GridEngine();
-                    if (!engine.CheckAuthorization(gridContext))
+                    HttpRequest httpRequest = context.Request;
+                    string gridName = httpRequest.Query["Name"];
+                    int statusCode;
+                    string html = GridHelpers.GenerateGrid(gridName, out statusCode, httpRequest.ToNameValueCollection());
+                    if (statusCode != 0)
                     {
-                        //Forbidden
-                        context.Response.StatusCode = 403;
+                        context.Response.StatusCode = statusCode;
                         await context.Response.WriteAsync(string.Empty);
-                        return;
                     }
-
-                    IMVCGridRenderingEngine renderingEngine = GridEngine.GetRenderingEngine(gridContext);
-
-                    // TODO: Reimplement this for csv exports and other rendering responses.
-                    //renderingEngine.PrepareResponse(context.Response);
-
-                    StringBuilder sb = new StringBuilder();
-                    TextWriter htmlWriter = new StringWriter(sb);
-                    engine.Run(renderingEngine, gridContext, htmlWriter);
-                    string html = sb.ToString();
-                    await context.Response.WriteAsync(html);
                 }
             });
         }
-
         public static void HandleMVCGridScript(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
-                string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
-                script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
-                script = script.Replace("%%ERRORDETAILS%%", "''");
-                script = script.Replace("%%HANDLERPATH%%", "../MVCGrid");
-                context.Response.ContentType = "text/javascript";
-                await context.Response.WriteAsync(script);
+                string path = context.Request.PathBase.Value;
+                switch (path)
+                {
+                    case "/MVCGrid.js":
+                        {
+                            string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
+                            script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
+                            script = script.Replace("%%ERRORDETAILS%%", "''");
+                            script = script.Replace("%%HANDLERPATH%%", "../MVCGrid");
+                            context.Response.ContentType = "text/javascript";
+                            await context.Response.WriteAsync(script);
+                            break;
+                        }
+                    case "/MVCGridSignalR.js":
+                        {
+                            string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGridSignalR.js");
+                            context.Response.ContentType = "text/javascript";
+                            await context.Response.WriteAsync(script);
+                            break;
+                        }
+                }
             });
         }
 
@@ -129,6 +127,8 @@ namespace MVCGrid.NetCore
             GridRegistration.RegisterAllGrids();
             
             app.Map("/MVCGrid.js", HandleMVCGridScript);
+            app.Map("/MVCGridSignalR.js", HandleMVCGridScript);
+            app.Map("/MVCGridSignalR.js", HandleMVCGridScript);
             app.Map("/MVCGrid", HandleMVCGrid);
             app.Map("/MVCGridHandler.axd/sortup.png", HandleMVCGrid);
             app.Map("/MVCGridHandler.axd/sortdown.png", HandleMVCGrid);

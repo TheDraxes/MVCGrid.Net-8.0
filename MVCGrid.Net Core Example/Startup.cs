@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVCGrid.Net_Core_Example.Grids;
 using MVCGrid.NetCore;
+using MVCGrid.NetCore.SignalR;
 
 namespace MVCGrid.Net_Core_Example
 {
@@ -39,6 +40,8 @@ namespace MVCGrid.Net_Core_Example
             });
             services.AddMvcGrid();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSignalR();
+            services.AddMvcGridSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,8 +69,9 @@ namespace MVCGrid.Net_Core_Example
             app.UseCookiePolicy();
 
             app.RegisterMVCGrid("TestGrid", GridTest.Test());
+            app.RegisterMVCGrid("TestGrid2", GridTest.Test2());
             app.UseMvcGrid();
-
+            app.UseMvcGridSignalR();
             app.UseMvcWithDefaultRoute();
         }
     }

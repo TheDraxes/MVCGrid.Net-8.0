@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCGrid.RazorTemplates", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCGrid.Net Core Example", "MVCGrid.Net Core Example\MVCGrid.Net Core Example.csproj", "{D8781876-3248-4967-8007-ECE86A0D5743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCGrid.NetCore", "MVCGrid.NetCore\MVCGrid.NetCore.csproj", "{CF8C55BB-6E70-4785-82C1-87AC1FCBFAF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCGrid.NetCore", "MVCGrid.NetCore\MVCGrid.NetCore.csproj", "{CF8C55BB-6E70-4785-82C1-87AC1FCBFAF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

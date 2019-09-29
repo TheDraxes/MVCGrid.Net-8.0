@@ -469,6 +469,11 @@
             Gets or sets a value indicating whether the column visibility can be changed.
             </summary>
         </member>
+        <member name="M:MVCGrid.Models.GridColumnBuilder`1.WithSearchable(System.Boolean)">
+            <summary>
+            Specifies whether or not the field can be searched.
+            </summary>
+        </member>
         <member name="P:MVCGrid.Models.GridContext.Items">
             <summary>
             Arbitrary settings for this context
@@ -477,6 +482,11 @@
         <member name="P:MVCGrid.Models.RenderingModel.PagingModel">
             <summary>
             Paging data. Will be null if paging should not be displayed
+            </summary>
+        </member>
+        <member name="T:MVCGrid.Models.SignalRGridType">
+            <summary>
+            Indicates what type of SignalR MVCGrid is being used.
             </summary>
         </member>
         <member name="P:MVCGrid.Models.GridColumn`1.ColumnName">
@@ -537,6 +547,11 @@
         <member name="P:MVCGrid.Models.GridColumn`1.AllowChangeVisibility">
             <summary>
             Gets or sets a value indicating whether the column visibility can be changed.
+            </summary>
+        </member>
+        <member name="P:MVCGrid.Models.GridColumn`1.AllowSearchable">
+            <summary>
+            Specifies whether or not the field can be searched.
             </summary>
         </member>
         <member name="P:MVCGrid.Models.GridDefinition`1.RetrieveData">

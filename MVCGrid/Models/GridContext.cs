@@ -12,7 +12,9 @@ namespace MVCGrid.Models
         public GridContext()
         {
             Items = new Dictionary<string, object>();
+            Identifier = Guid.NewGuid().ToString();
         }
+        public string Identifier { get; set; }
         public IMVCGridDefinition GridDefinition { get; set; }
         //public HttpContext CurrentHttpContext { get; set; }
         public QueryOptions QueryOptions { get; set; }

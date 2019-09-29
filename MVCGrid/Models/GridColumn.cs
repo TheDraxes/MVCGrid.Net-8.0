@@ -127,5 +127,10 @@ namespace MVCGrid.Models
         /// Gets or sets a value indicating whether the column visibility can be changed.
         /// </summary>
         public bool AllowChangeVisibility { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not the field can be searched.
+        /// </summary>
+        public bool AllowSearchable { get; set; }
     }
 }
