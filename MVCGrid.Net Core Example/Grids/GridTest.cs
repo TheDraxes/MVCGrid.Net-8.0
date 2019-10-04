@@ -53,7 +53,6 @@ namespace MVCGrid.Net_Core_Example.Grids
                         .WithVisibility(visible: false, allowChangeVisibility: true)
                         .WithValueExpression(p => p.Email);
                 })
-                //.WithAdditionalSetting(MVCGrid.Rendering.BootstrapRenderingEngine.SettingNameTableClass, "notreal") // Example of changing table css class
                 .WithRetrieveDataMethod((context) =>
                 {
                     QueryOptions queryOptions = context.QueryOptions;

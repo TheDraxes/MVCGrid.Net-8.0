@@ -23,6 +23,10 @@ namespace MVCGrid.NetCore.SignalR.Models
         {
             Collection.Add(item);
         }
+        public int Count()
+        {
+            return Collection.Count;
+        }
         public void Add(IEnumerable<T> items)
         {
             foreach (T item in items)
@@ -51,7 +55,7 @@ namespace MVCGrid.NetCore.SignalR.Models
             {
                 foreach (T newItem in e.NewItems)
                 {
-                    SignalRHelper.SendGridData(GridName, "", "").GetAwaiter().GetResult();
+                    SignalRHelper.SendGridData(GridName, GridGenerationType.Row).GetAwaiter().GetResult();
                     //ModifiedItems.Add(newItem);
                     //newItem.PropertyChanged += this.OnItemPropertyChanged;
                 }

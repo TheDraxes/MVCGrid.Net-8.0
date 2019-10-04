@@ -30,17 +30,17 @@ namespace MVCGrid.Net_Core_Example
         }
         public async Task<IActionResult> SignalRTest()
         {
-            await SignalRHelper.SendGridData("TestGrid2", "", "");
             Task task = Task.Run(SignalRTestJob);
             return Content(string.Empty);
         }
         public async Task SignalRTestJob()
         {
-            for (int x=0; 5 > x; x++)
+            for (int x=0; 500 > x; x++)
             {
+                int count = MVCGridSignalR.SignalRGridSessions["TestGrid2"].Data.Count();
                 Person person = new Person()
                 {
-                    Id = x,
+                    Id = count,
                     FirstName = "Alpha",
                     LastName = "Shabazz",
                     Active = true,
@@ -50,7 +50,7 @@ namespace MVCGrid.Net_Core_Example
                     StartDate = DateTime.Now,
                 };
                 MVCGridSignalR.SignalRGridSessions["TestGrid2"].Data.Add(person);
-                await Task.Delay(1000); 
+                await Task.Delay(100); 
             }
         }
 

@@ -57,7 +57,7 @@ namespace MVCGrid.Rendering
             else
             {
                 sbHtml.Append("<tbody>");
-                sbHtml.Append("<tr>");
+                sbHtml.Append("<tr class='noresults'>");
                 sbHtml.AppendFormat("<td colspan='{0}'>", model.Columns.Count());
                 sbHtml.Append(model.NoResultsMessage);
                 sbHtml.Append("</td>");
@@ -157,7 +157,7 @@ namespace MVCGrid.Rendering
             Models.PagingModel pagingModel = model.PagingModel;
 
             sbHtml.Append("<div class=\"row\">");
-            sbHtml.Append("<div class=\"col-xs-6\">");
+            sbHtml.Append($"<div id='{model.TableHtmlId}_Summary' class=\"col-xs-6\">");
             sbHtml.AppendFormat(model.SummaryMessage,
                 pagingModel.FirstRecord, pagingModel.LastRecord, pagingModel.TotalRecords
                 );

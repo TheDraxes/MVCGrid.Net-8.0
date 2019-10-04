@@ -3,6 +3,7 @@ using MVCGrid.NetCore.SignalR;
 using MVCGrid.NetCore.SignalR.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MVCGrid.NetCore
@@ -41,6 +42,7 @@ namespace MVCGrid.NetCore
 
                 List<dynamic> data = MVCGridSignalR.SignalRGridSessions[context.GridName].Data.ToList();
                 totalCount = data.Count;
+                data = data.Skip(pageIndex * pageSize).Take(pageSize).ToList();
 
                 return new QueryResult<dynamic>()
                 {

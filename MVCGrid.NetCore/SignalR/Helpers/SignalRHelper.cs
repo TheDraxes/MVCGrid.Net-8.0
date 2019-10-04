@@ -18,17 +18,12 @@ namespace MVCGrid.NetCore.SignalR.Helpers
             _hubContext = hubContext;
         }
 
-        public static async Task SendGridData(string gridName, string data, string connectionId = "")
+        public static async Task SendGridData(string gridName, GridGenerationType gridGenerationType)
         {
             SignalRGridSession session = MVCGridSignalR.SignalRGridSessions[gridName];
             List<string> connectionIds = session.GridConnections;
 
-            string html = GridHelpers.GenerateGrid(gridName);
-            SignalRGridResponse signalrGridResponse = new SignalRGridResponse()
-            {
-                Gridname = gridName,
-                Html = html,
-            };
+            SignalRGridResponse signalrGridResponse = SignalRGridHelpers.GenerateSignalRGrid(gridName, gridGenerationType);
             string json = JsonConvert.SerializeObject(signalrGridResponse);
             await _hubContext.Clients.Clients(connectionIds).SendCoreAsync("Message", new object[] { json });
         }

@@ -22,69 +22,25 @@ MVCGrid.InitializeSignalR = function () {
     connection.on('Message', (response) => {
         var obj = JSON.parse(response);
         console.log(obj);
+        var type = obj.Type;
         var gridname = obj.Gridname;
         var html = obj.Html;
-        var tableHolderHtmlId = 'MVCGridTableHolder_' + gridname;
-        $('#' + tableHolderHtmlId).html(html);
+        var summaryhtml = obj.SummaryHtml;
+        if (type == "Table") {
+            var tableHtmlId = 'MVCGridTableHolder_' + gridname;
+            $('#' + tableHolderHtmlId).html(html);
+        }
+        if (type == "Row") {
+            $(".noresults").remove();
+            var tableHtmlId = 'MVCGridTable_' + gridname;
+            $('#' + tableHtmlId + ' tbody').append(html);
+
+            var tableSummaryHtmlId = 'MVCGridTable_' + gridname + '_Summary';
+            $('#' + tableSummaryHtmlId).html(summaryhtml);
+        }
     });
 };
 
 $(function () {
     
 });
-
-//MVCGrid.reloadGrid = function (mvcGridName) {
-//    var tableHolderHtmlId = 'MVCGridTableHolder_' + mvcGridName;
-//    var loadingHtmlId = 'MVCGrid_Loading_' + mvcGridName;
-//    var errorHtmlId = 'MVCGrid_ErrorMessage_' + mvcGridName;
-
-//    var gridDef = findGridDef(mvcGridName);;
-
-//    var ajaxBaseUrl = handlerPath;
-
-//    if (gridDef.renderingMode == 'controller') {
-//        ajaxBaseUrl = controllerPath;
-//    }
-
-//    var fullAjaxUrl = ajaxBaseUrl + location.search;
-
-//    $.each(gridDef.pageParameters, function (k, v) {
-//        var thisPP = "_pp_" + gridDef.qsPrefix + k;
-//        fullAjaxUrl = updateURLParameter(fullAjaxUrl, thisPP, v);
-//    });
-
-//    queryOptions[mvcGridName].Name = mvcGridName;
-
-//    $.ajax({
-//        type: "GET",
-//        url: fullAjaxUrl,
-//        data: queryOptions[mvcGridName],
-//        cache: false,
-//        beforeSend: function () {
-//            if (gridDef.clientLoading != '') {
-//                window[gridDef.clientLoading]();
-//            }
-
-//            $('#' + loadingHtmlId).css("visibility", "visible");
-//        },
-//        success: function (result) {
-//            $('#' + tableHolderHtmlId).html(result);
-//        },
-//        error: function (request, status, error) {
-//            var errorhtml = $('#' + errorHtmlId).html();
-
-//            if (showErrorDetails) {
-//                $('#' + tableHolderHtmlId).html(request.responseText);
-//            } else {
-//                $('#' + tableHolderHtmlId).html(errorhtml);
-//            }
-//        },
-//        complete: function () {
-//            if (gridDef.clientLoadingComplete != '') {
-//                window[gridDef.clientLoadingComplete]();
-//            }
-
-//            $('#' + loadingHtmlId).css("visibility", "hidden");
-//        }
-//    });
-//};
