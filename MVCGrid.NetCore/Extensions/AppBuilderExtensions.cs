@@ -88,7 +88,7 @@ namespace MVCGrid.NetCore
                     if (statusCode != 0)
                     {
                         context.Response.StatusCode = statusCode;
-                        await context.Response.WriteAsync(string.Empty);
+                        await context.Response.WriteAsync(html);
                     }
                 }
             });

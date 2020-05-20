@@ -24,7 +24,7 @@ namespace MVCGrid.NetCore.Helpers
             if (nameValueCollection == null)
                 nameValueCollection = new NameValueCollection();
 
-            statusCode = 0;
+            statusCode = 200;
             IMVCGridDefinition grid = MVCGridDefinitionTable.GetDefinitionInterface(gridName);
             QueryOptions options = QueryStringParser.ParseOptions(grid, nameValueCollection);
             GridContext gridContext = MVCGrid.NetCore.Utility.GridContextUtility.Create(/*context, */gridName, grid, options);
@@ -42,7 +42,6 @@ namespace MVCGrid.NetCore.Helpers
             // TODO: Reimplement this for csv exports and other rendering responses.
             //renderingEngine.PrepareResponse(context.Response);
 
-            
             StringBuilder sb = new StringBuilder();
             TextWriter htmlWriter = new StringWriter(sb);
             engine.Run(renderingEngine, gridContext, htmlWriter);
