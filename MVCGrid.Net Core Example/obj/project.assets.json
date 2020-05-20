@@ -5578,23 +5578,15 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "MVCGrid/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/MVCGrid.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MVCGrid.dll": {}
-        }
-      },
-      "MVCGrid.NetCore/1.0.0": {
+      "MVCGrid.NetCore/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "HtmlAgilityPack": "1.11.12",
-          "MVCGrid": "1.0.0",
           "Microsoft.AspNet.SignalR": "2.4.1",
-          "Microsoft.AspNetCore.All": "2.2.7"
+          "Microsoft.AspNetCore.All": "2.2.7",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
           "bin/placeholder/MVCGrid.NetCore.dll": {}
@@ -14591,12 +14583,7 @@
         "windowsazure.storage.nuspec"
       ]
     },
-    "MVCGrid/1.0.0": {
-      "type": "project",
-      "path": "../MVCGrid/MVCGrid.csproj",
-      "msbuildProject": "../MVCGrid/MVCGrid.csproj"
-    },
-    "MVCGrid.NetCore/1.0.0": {
+    "MVCGrid.NetCore/1.0.1": {
       "type": "project",
       "path": "../MVCGrid.NetCore/MVCGrid.NetCore.csproj",
       "msbuildProject": "../MVCGrid.NetCore/MVCGrid.NetCore.csproj"
@@ -14604,8 +14591,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "MVCGrid >= 1.0.0",
-      "MVCGrid.NetCore >= 1.0.0",
+      "MVCGrid.NetCore >= 1.0.1",
       "Microsoft.AspNetCore.All >= 2.2.7",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
@@ -14646,9 +14632,6 @@
           "projectReferences": {
             "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj": {
               "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj"
-            },
-            "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
-              "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
             }
           }
         }

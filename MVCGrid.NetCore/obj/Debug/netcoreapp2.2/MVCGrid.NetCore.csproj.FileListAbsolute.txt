@@ -19,13 +19,8 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.N
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.runtimeconfig.dev.json
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.dll
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\System.Web.Mvc.dll
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.pdb
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.xml
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csprojAssemblyReference.cache
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfoInputs.cache
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfo.cs
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csproj.CopyComplete
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb

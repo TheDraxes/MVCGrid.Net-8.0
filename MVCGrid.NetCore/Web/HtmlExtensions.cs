@@ -9,6 +9,7 @@ using MVCGrid.Web;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MVCGrid.NetCore.Interfaces;
 
 namespace MVCGrid.NetCore.Web
 {

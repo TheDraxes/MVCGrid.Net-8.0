@@ -46,12 +46,8 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.pdb
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\System.Web.Mvc.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.pdb
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.xml
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csprojAssemblyReference.cache
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cache
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cs
@@ -68,7 +64,6 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.cshtml.g.cs
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.cshtml.g.cs
-Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\BasicExample.cshtml.g.cs
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\SignalRExample.cshtml.g.cs
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cache
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cs
@@ -76,3 +71,4 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.CopyComplete
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
+Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\Basic.cshtml.g.cs

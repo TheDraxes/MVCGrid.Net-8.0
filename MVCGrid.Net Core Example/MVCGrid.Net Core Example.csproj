@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MVCGrid.NetCore\MVCGrid.NetCore.csproj" />
-    <ProjectReference Include="..\MVCGrid\MVCGrid.csproj" />
   </ItemGroup>
 
 </Project>

@@ -20,7 +20,7 @@ namespace MVCGrid.Net_Core_Example
 {
     public class ExampleController : Controller
     {
-        public IActionResult BasicExample()
+        public IActionResult Basic()
         {
             return View();
         }

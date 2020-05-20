@@ -33,9 +33,6 @@
             "projectReferences": {
               "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj": {
                 "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj"
-              },
-              "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
-                "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
               }
             }
           }
@@ -90,7 +87,7 @@
       }
     },
     "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid.NetCore\\MVCGrid.NetCore.csproj",
         "projectName": "MVCGrid.NetCore",
@@ -115,11 +112,7 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {
-              "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
-                "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -143,6 +136,14 @@
               "target": "Package",
               "version": "[2.2.7, )"
             },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -162,17 +163,6 @@
           "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj",
-        "projectName": "MVCGrid",
-        "projectPath": "Z:\\C# Projects\\MVCGrid.Net-2.0\\MVCGrid\\MVCGrid.csproj"
-      },
-      "frameworks": {
-        "net40": {}
       }
     }
   }

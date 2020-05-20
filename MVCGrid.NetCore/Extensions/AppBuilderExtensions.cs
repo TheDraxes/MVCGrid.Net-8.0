@@ -20,7 +20,7 @@ namespace MVCGrid.NetCore
     {
         static Stream GetResourceStream(string resourcePath)
         {
-            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid.NetCore");
             List<string> resourceNames = new List<string>(assembly.GetManifestResourceNames());
 
             resourcePath = resourcePath.Replace(@"/", ".");
@@ -33,7 +33,7 @@ namespace MVCGrid.NetCore
         }
         static string GetResourceFileContentAsString(string thenamespace, string fileName)
         {
-            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid.NetCore");
             var resourceName = thenamespace + "." + fileName;
 
             string resource = null;
@@ -48,7 +48,7 @@ namespace MVCGrid.NetCore
         }
         static byte[] GetResourceFileContentAsByteArray(string thenamespace, string fileName)
         {
-            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid");
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "MVCGrid.NetCore");
             var resourceName = thenamespace + "." + fileName;
 
             byte[] bytes;
@@ -75,7 +75,7 @@ namespace MVCGrid.NetCore
                 if (path.Contains(".gif") || path.Contains(".png") || path.Contains(".jpg"))
                 {
                     path = "Images" + path.Replace("/MVCGridHandler.axd", string.Empty);
-                    byte[] image = GetResourceFileContentAsByteArray("MVCGrid", path);
+                    byte[] image = GetResourceFileContentAsByteArray("MVCGrid.NetCore", path);
                     context.Response.ContentType = "image/png";
                     await context.Response.Body.WriteAsync(image, 0, image.Length);
                 }
@@ -102,7 +102,7 @@ namespace MVCGrid.NetCore
                 {
                     case "/MVCGrid.js":
                         {
-                            string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGrid.js");
+                            string script = GetResourceFileContentAsString("MVCGrid.NetCore", "Scripts/MVCGrid.js");
                             script = script.Replace("%%CONTROLLERPATH%%", "gridmvc/grid");
                             script = script.Replace("%%ERRORDETAILS%%", "''");
                             script = script.Replace("%%HANDLERPATH%%", "../MVCGrid");
@@ -112,7 +112,7 @@ namespace MVCGrid.NetCore
                         }
                     case "/MVCGridSignalR.js":
                         {
-                            string script = GetResourceFileContentAsString("MVCGrid", "Scripts/MVCGridSignalR.js");
+                            string script = GetResourceFileContentAsString("MVCGrid.NetCore", "Scripts/MVCGridSignalR.js");
                             context.Response.ContentType = "text/javascript";
                             await context.Response.WriteAsync(script);
                             break;

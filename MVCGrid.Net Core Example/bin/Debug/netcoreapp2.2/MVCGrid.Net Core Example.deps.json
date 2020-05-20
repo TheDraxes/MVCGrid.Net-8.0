@@ -24,8 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "MVCGrid.Net Core Example/1.0.0": {
         "dependencies": {
-          "MVCGrid": "1.0.0",
-          "MVCGrid.NetCore": "1.0.0",
+          "MVCGrid.NetCore": "1.0.1",
           "Microsoft.AspNetCore.All": "2.2.7",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -275,34 +274,19 @@
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "MVCGrid/1.0.0": {
-        "runtime": {
-          "MVCGrid.dll": {}
-        },
-        "compile": {
-          "MVCGrid.dll": {}
-        }
-      },
-      "MVCGrid.NetCore/1.0.0": {
+      "MVCGrid.NetCore/1.0.1": {
         "dependencies": {
           "HtmlAgilityPack": "1.11.12",
-          "MVCGrid": "1.0.0",
           "Microsoft.AspNet.SignalR": "2.4.1",
-          "Microsoft.AspNetCore.All": "2.2.7"
+          "Microsoft.AspNetCore.All": "2.2.7",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "runtime": {
           "MVCGrid.NetCore.dll": {}
         },
         "compile": {
           "MVCGrid.NetCore.dll": {}
-        }
-      },
-      "System.Web.Mvc/3.0.0.0": {
-        "runtime": {
-          "System.Web.Mvc.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.20105.0"
-          }
         }
       },
       "Libuv/1.10.0": {
@@ -4074,18 +4058,8 @@
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
-    "MVCGrid/1.0.0": {
+    "MVCGrid.NetCore/1.0.1": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MVCGrid.NetCore/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.Web.Mvc/3.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

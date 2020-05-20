@@ -14,6 +14,7 @@ using MVCGrid.Utility;
 using MVCGrid.NetCore.Engine;
 using MVCGrid.Interfaces;
 using System.Collections.Specialized;
+using MVCGrid.NetCore.Interfaces;
 
 namespace MVCGrid.NetCore.Helpers
 {
