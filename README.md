@@ -10,10 +10,10 @@ Easily configurable. All AJAX calls are handled for you... Simply tell it how to
 * gracefully degrades on older browsers (works on IE8)
 * Built-in exporting to csv
 * Filtering support with minimal client-side code
+* Signal R support send data from the backend to the frontend seemlessly.
 
 ## Creator
-Joe Harrison
-
 Alpha Shabazz
+Joe Harrison
 
 See http://mvcgrid.net
