@@ -6,11 +6,9 @@ using MVCGrid.Web.Models;
 using MVCGridExample.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace MVCGridExample
 {
@@ -416,7 +414,7 @@ namespace MVCGridExample
                     string fa = options.GetFilterString("Status");
                     if (!String.IsNullOrWhiteSpace(fa))
                     {
-                        active = (String.Compare(fa, "active", true) == 0);
+                        active = String.Compare(fa, "active", true) == 0;
                     }
 
                     string sortColumn = options.GetSortColumnData<string>();
@@ -970,7 +968,7 @@ namespace MVCGridExample
                     string ppactive = options.GetPageParameterString("active");
                     bool filterActive = bool.Parse(ppactive);
 
-                    var items = repo.GetData(out totalRecords, null,null, filterActive, options.GetLimitOffset(), options.GetLimitRowcount(),
+                    var items = repo.GetData(out totalRecords, null, null, filterActive, options.GetLimitOffset(), options.GetLimitRowcount(),
                         options.GetSortColumnData<string>(), options.SortDirection == SortDirection.Dsc);
 
                     return new QueryResult<Person>()
@@ -1160,10 +1158,10 @@ namespace MVCGridExample
             def.RetrieveData = (options) =>
             {
                 return new QueryResult<YourModelItem>()
-                    {
-                        Items = new List<YourModelItem>(),
-                        TotalRecords = 0
-                    };
+                {
+                    Items = new List<YourModelItem>(),
+                    TotalRecords = 0
+                };
             };
             MVCGridDefinitionTable.Add("NonFluentUsageExample", def);
 

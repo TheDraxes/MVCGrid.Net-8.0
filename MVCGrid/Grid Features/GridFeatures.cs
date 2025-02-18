@@ -1,9 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace MVCGrid.Grid_Features
 {
@@ -13,7 +9,7 @@ namespace MVCGrid.Grid_Features
         {
             searchTerm = searchTerm.ToLower().Trim();
             List<T> filteredData = new List<T>();
-            for (int x=0; data.Count > x; x++)
+            for (int x = 0; data.Count > x; x++)
             {
                 T datum = data[x];
                 foreach (PropertyInfo propertyInfo in datum.GetType().GetProperties())

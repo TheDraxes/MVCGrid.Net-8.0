@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using MVCGrid.NetCore.Helpers;
-using MVCGrid.Web;
-using System;
 
 namespace MVCGrid.NetCore
 {

@@ -2,11 +2,9 @@
 using MVCGrid.Net_Core_Example.Models;
 using MVCGrid.NetCore;
 using MVCGrid.NetCore.SignalR.Extensions;
-using MVCGrid.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MVCGrid.Net_Core_Example.Grids
 {
@@ -83,7 +81,7 @@ namespace MVCGrid.Net_Core_Example.Grids
                         TotalRecords = totalCount
                     };
                 });
-            
+
         }
 
         public static SignalRMVCGridBuilder Test2()

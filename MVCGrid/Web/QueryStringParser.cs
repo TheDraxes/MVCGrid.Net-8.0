@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace MVCGrid.Web
 {
@@ -137,14 +134,14 @@ namespace MVCGrid.Web
                 {
                     colDef = null;
                 }
-                
+
 
                 if (colDef != null)
                 {
                     options.SortColumnName = colDef.ColumnName;
                     options.SortColumnData = colDef.SortColumnData;
                 }
-                
+
 
                 options.SortDirection = grid.DefaultSortDirection;
                 if (queryString[qsKeyDirection] != null)
@@ -201,7 +198,8 @@ namespace MVCGrid.Web
                 foreach (var gridColumn in gridColumns)
                 {
                     requestedColumns.Add(
-                        new ColumnVisibility() {
+                        new ColumnVisibility()
+                        {
                             ColumnName = gridColumn.ColumnName,
                             Visible = gridColumn.Visible
                         });
@@ -225,7 +223,7 @@ namespace MVCGrid.Web
 
                     if (gridColumn != null)
                     {
-                        if (requestedColumns.SingleOrDefault(p=>p.ColumnName== gridColumn.ColumnName) == null)
+                        if (requestedColumns.SingleOrDefault(p => p.ColumnName == gridColumn.ColumnName) == null)
                         {
                             requestedColumns.Add(
                                 new ColumnVisibility()

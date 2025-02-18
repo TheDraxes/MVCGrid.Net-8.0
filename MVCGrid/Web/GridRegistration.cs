@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Web.Mvc;
 
 namespace MVCGrid.Web
 {
@@ -54,7 +52,7 @@ namespace MVCGrid.Web
 
         private static bool TypeIsPublicClass(Type type)
         {
-            return (type != null && type.IsPublic && type.IsClass && !type.IsAbstract);
+            return type != null && type.IsPublic && type.IsClass && !type.IsAbstract;
         }
     }
 }

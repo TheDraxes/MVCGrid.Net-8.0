@@ -1,11 +1,8 @@
-﻿using MVCGrid.Interfaces;
-using MVCGrid.Models;
+﻿using MVCGrid.Models;
 using MVCGrid.NetCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVCGrid.Web
 {
@@ -63,7 +60,7 @@ namespace MVCGrid.Web
                     }
                 }
             }
-            
+
             _table.Add(name, mapping);
 
         }

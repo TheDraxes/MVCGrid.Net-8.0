@@ -174,7 +174,7 @@ namespace MVCGrid.Web.Controllers
                 {
                     cols.Add("Col1").WithValueExpression(p => p.Col1);
                     cols.Add("Col2").WithValueExpression(p => p.Col2);
-                   
+
 
                     cols.Add("FromDate").WithHeaderText("From Date").WithFiltering(true).WithValueExpression(x => x.Col3);
                 })
@@ -191,7 +191,7 @@ namespace MVCGrid.Web.Controllers
                     int totalRecords;
                     var items = repo.GetData(out totalRecords, col3Filter, options.GetLimitOffset(), options.GetLimitRowcount(), options.GetSortColumnData<string>(), options.SortDirection == SortDirection.Dsc);
 
-                    
+
 
                     return new QueryResult<TestItem>()
                     {
@@ -258,7 +258,6 @@ namespace MVCGrid.Web.Controllers
             if (HttpContext.Current.Cache[CacheKey] == null)
             {
                 List<IReportInvoiceLine> items = new List<IReportInvoiceLine>();
-                int contactId = 0;
                 for (int i = 1; i < 88; i++)
                 {
                     int thisyear = _rng.Next(2010, 2016);

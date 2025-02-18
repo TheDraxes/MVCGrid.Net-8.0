@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MVCGrid.NetCore.SignalR
+﻿namespace MVCGrid.NetCore.SignalR
 {
     public class SignalRGridResponse
     {

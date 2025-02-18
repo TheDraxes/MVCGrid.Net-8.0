@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Web;
 
@@ -11,7 +9,7 @@ namespace MVCGrid.Web.Models
     {
         public static string GetCodeSnippet(string gridName)
         {
-            string cacheKey=String.Format("GetCodeSnippet_{0}", gridName);
+            string cacheKey = String.Format("GetCodeSnippet_{0}", gridName);
 
             var cached = HttpContext.Current.Cache[cacheKey] as string;
 

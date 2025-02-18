@@ -3,9 +3,6 @@ using MVCGrid.Models;
 using MVCGrid.NetCore.Models;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
 
 namespace MVCGrid.NetCore.Interfaces
 {

@@ -1,20 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Reflection;
-using MVCGrid.Web;
+﻿using MVCGrid.Interfaces;
 using MVCGrid.Models;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using MVCGrid.NetCore.Helpers;
-using MVCGrid.Utility;
 using MVCGrid.NetCore.Engine;
-using MVCGrid.Interfaces;
-using System.Collections.Specialized;
 using MVCGrid.NetCore.Interfaces;
+using MVCGrid.Web;
+using System.Collections.Specialized;
+using System.IO;
+using System.Text;
 
 namespace MVCGrid.NetCore.Helpers
 {

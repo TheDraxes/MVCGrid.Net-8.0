@@ -72,3 +72,42 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\Basic.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\appsettings.Development.json
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\appsettings.json
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.deps.json
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.runtimeconfig.json
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.runtimeconfig.dev.json
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.dll
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.pdb
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+K:\dev\projects\MVCGrid.Net Core Example\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.AssemblyReference.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.GeneratedMSBuildEditorConfig.editorconfig
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.AssemblyInfoInputs.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.AssemblyInfo.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.csproj.CoreCompileInputs.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorAssemblyInfo.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.sourcelink.json
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.TagHelpers.input.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.TagHelpers.output.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorCoreGenerate.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Error.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Index.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Privacy.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_CookieConsentPartial.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_Layout.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\Basic.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\Razor\Views\Example\SignalRExample.cshtml.g.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cache
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.RazorTargetAssemblyInfo.cs
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.Views.pdb
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid..4DDE7A91.Up2Date
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.dll
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.pdb
+K:\dev\projects\MVCGrid.Net Core Example\obj\Debug\netcoreapp2.2\MVCGrid.Net Core Example.genruntimeconfig.cache

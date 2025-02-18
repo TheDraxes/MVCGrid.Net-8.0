@@ -1,19 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVCGrid.Net_Core_Example.Models;
 using MVCGrid.NetCore.SignalR;
-using MVCGrid.NetCore.SignalR.Helpers;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MVCGrid.Net_Core_Example
@@ -35,7 +23,7 @@ namespace MVCGrid.Net_Core_Example
         }
         public async Task SignalRTestJob()
         {
-            for (int x=0; 500 > x; x++)
+            for (int x = 0; 500 > x; x++)
             {
                 int count = MVCGridSignalR.SignalRGridSessions["TestGrid2"].Data.Count();
                 Person person = new Person()
@@ -50,7 +38,7 @@ namespace MVCGrid.Net_Core_Example
                     StartDate = DateTime.Now,
                 };
                 MVCGridSignalR.SignalRGridSessions["TestGrid2"].Data.Add(person);
-                await Task.Delay(100); 
+                await Task.Delay(100);
             }
         }
 
