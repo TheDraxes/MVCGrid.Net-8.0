@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MVCGrid.Models
 {
@@ -26,11 +23,11 @@ namespace MVCGrid.Models
             if (pageToStart < 1) pageToStart = 1;
 
             int pageToEnd = pageToStart + (pagesToDisplay - 1);
-            
+
             if (pageToEnd > NumberOfPages)
             {
                 int diff = pageToEnd - NumberOfPages;
-                
+
                 pageToEnd = NumberOfPages;
                 pageToStart = pageToStart - diff;
             }

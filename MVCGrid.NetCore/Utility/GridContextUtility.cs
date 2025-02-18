@@ -1,15 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.Routing;
-using MVCGrid.Interfaces;
-using MVCGrid.Models;
+﻿using MVCGrid.Models;
 using MVCGrid.NetCore.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace MVCGrid.NetCore.Utility
 {

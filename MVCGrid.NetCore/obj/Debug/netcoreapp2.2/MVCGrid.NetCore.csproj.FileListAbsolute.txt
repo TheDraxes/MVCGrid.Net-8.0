@@ -24,3 +24,17 @@ Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.N
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfo.cs
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
 Z:\C# Projects\MVCGrid.Net-2.0\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+K:\dev\projects\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.deps.json
+K:\dev\projects\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.runtimeconfig.json
+K:\dev\projects\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.runtimeconfig.dev.json
+K:\dev\projects\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+K:\dev\projects\MVCGrid.NetCore\bin\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csproj.AssemblyReference.cache
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.GeneratedMSBuildEditorConfig.editorconfig
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfoInputs.cache
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.AssemblyInfo.cs
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.csproj.CoreCompileInputs.cache
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.sourcelink.json
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.dll
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.pdb
+K:\dev\projects\MVCGrid.NetCore\obj\Debug\netcoreapp2.2\MVCGrid.NetCore.genruntimeconfig.cache

@@ -3,8 +3,6 @@ using MVCGrid.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVCGrid.Web
 {
@@ -62,7 +60,7 @@ namespace MVCGrid.Web
                     }
                 }
             }
-            
+
             _table.Add(name, mapping);
 
         }

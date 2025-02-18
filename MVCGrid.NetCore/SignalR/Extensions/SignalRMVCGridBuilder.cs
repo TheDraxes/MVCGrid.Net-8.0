@@ -1,10 +1,8 @@
 ﻿using MVCGrid.Models;
 using MVCGrid.NetCore.SignalR;
 using MVCGrid.NetCore.SignalR.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MVCGrid.NetCore
 {

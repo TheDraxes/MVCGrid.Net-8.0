@@ -1,11 +1,7 @@
 ﻿using MVCGrid.Interfaces;
-using MVCGrid.Models;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVCGrid.Models
 {
@@ -110,7 +106,7 @@ namespace MVCGrid.Models
             if (column.ValueExpression == null && column.ValueTemplate == null)
             {
                 throw new ArgumentException(
-                    String.Format("Column '{0}' is missing a value expression.", column.ColumnName), 
+                    String.Format("Column '{0}' is missing a value expression.", column.ColumnName),
                     "column.ValueExpression");
             }
 
@@ -172,7 +168,7 @@ namespace MVCGrid.Models
                     {
                         thisCell.HtmlText = col.ValueExpression(item, context);
                     }
-                    
+
                     if (!String.IsNullOrWhiteSpace(col.ValueTemplate))
                     {
                         var templateModel = new TemplateModel()

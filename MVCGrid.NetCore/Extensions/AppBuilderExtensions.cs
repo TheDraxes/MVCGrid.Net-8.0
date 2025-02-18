@@ -1,18 +1,14 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using MVCGrid.Models;
+using MVCGrid.NetCore.Helpers;
+using MVCGrid.Web;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using System.Reflection;
-using MVCGrid.Web;
-using MVCGrid.Models;
 using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using MVCGrid.NetCore.Helpers;
-using MVCGrid.Utility;
-using MVCGrid.NetCore.Engine;
-using MVCGrid.Interfaces;
+using System.Reflection;
 
 namespace MVCGrid.NetCore
 {
@@ -123,9 +119,9 @@ namespace MVCGrid.NetCore
 
         public static void UseMvcGrid(this IApplicationBuilder app)
         {
-            HttpHelper.Configure(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
+            HttpHelper.Configure(app.ApplicationServices.GetService<IHttpContextAccessor>());
             GridRegistration.RegisterAllGrids();
-            
+
             app.Map("/MVCGrid.js", HandleMVCGridScript);
             app.Map("/MVCGridSignalR.js", HandleMVCGridScript);
             app.Map("/MVCGridSignalR.js", HandleMVCGridScript);

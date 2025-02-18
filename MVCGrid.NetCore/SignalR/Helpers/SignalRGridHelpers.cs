@@ -1,20 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
+﻿using HtmlAgilityPack;
+using MVCGrid.NetCore.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Reflection;
-using MVCGrid.Web;
-using MVCGrid.Models;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using MVCGrid.NetCore.Helpers;
-using MVCGrid.Utility;
-using MVCGrid.NetCore.Engine;
-using MVCGrid.Interfaces;
 using System.Collections.Specialized;
-using HtmlAgilityPack;
+using System.Linq;
 
 namespace MVCGrid.NetCore.SignalR.Helpers
 {

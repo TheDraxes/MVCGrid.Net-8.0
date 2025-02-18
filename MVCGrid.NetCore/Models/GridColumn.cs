@@ -1,8 +1,5 @@
 ﻿using MVCGrid.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MVCGrid.Models
 {
@@ -16,7 +13,7 @@ namespace MVCGrid.Models
         }
 
         public GridColumn(string columnName, string headerText, Func<T1, GridContext, string> valueExpression)
-            :this(columnName, headerText, valueExpression, null)
+            : this(columnName, headerText, valueExpression, null)
         {
 
         }

@@ -1,14 +1,5 @@
 ﻿using MVCGrid.Engine;
 using MVCGrid.Interfaces;
-using MVCGrid.Models;
-using MVCGrid.Rendering;
-using MVCGrid.Utility;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,9 +25,9 @@ namespace MVCGrid.Web
         {
             GridEngine ge = new GridEngine();
             ControllerContext context = helper.ViewContext.Controller.ControllerContext;
-            string html = ge.GetBasePageHtml(/*helper, */HttpContext.Current.Request.QueryString ,name, grid, pageParameters);
+            string html = ge.GetBasePageHtml(/*helper, */HttpContext.Current.Request.QueryString, name, grid, pageParameters);
 
             return MvcHtmlString.Create(html);
-        }       
+        }
     }
 }

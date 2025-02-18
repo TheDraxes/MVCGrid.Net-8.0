@@ -9,3 +9,5 @@ MVCGridExample/Properties/PublishProfiles/
 MVCGrid.RazorTemplates/bin/
 MVCGrid.RazorTemplates/obj/
 .vs/
+**/obj
+**/bin

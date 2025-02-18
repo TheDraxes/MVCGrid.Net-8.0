@@ -1,6 +1,5 @@
 ﻿using MVCGrid.Interfaces;
 using MVCGrid.Models;
-using MVCGrid.Rendering;
 using MVCGrid.Utility;
 using MVCGrid.Web;
 using System;
@@ -8,7 +7,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace MVCGrid.Engine
@@ -120,11 +118,11 @@ namespace MVCGrid.Engine
                 model.PagingModel.TotalRecords = totalRecords.Value;
 
                 model.PagingModel.FirstRecord = (currentPageIndex * gridContext.QueryOptions.ItemsPerPage.Value) + 1;
-                if(model.PagingModel.FirstRecord > model.PagingModel.TotalRecords) 
+                if (model.PagingModel.FirstRecord > model.PagingModel.TotalRecords)
                 {
                     model.PagingModel.FirstRecord = model.PagingModel.TotalRecords;
                 }
-                model.PagingModel.LastRecord = (model.PagingModel.FirstRecord + gridContext.QueryOptions.ItemsPerPage.Value) - 1;
+                model.PagingModel.LastRecord = model.PagingModel.FirstRecord + gridContext.QueryOptions.ItemsPerPage.Value - 1;
                 if (model.PagingModel.LastRecord > model.PagingModel.TotalRecords)
                 {
                     model.PagingModel.LastRecord = model.PagingModel.TotalRecords;

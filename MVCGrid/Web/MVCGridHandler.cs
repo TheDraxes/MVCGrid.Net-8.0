@@ -1,18 +1,10 @@
 ﻿using MVCGrid.Engine;
 using MVCGrid.Interfaces;
-using MVCGrid.Models;
-using MVCGrid.Rendering;
 using MVCGrid.Utility;
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Resources;
-using System.Text;
 using System.Web;
-using System.Web.Routing;
 
 namespace MVCGrid.Web
 {
@@ -41,7 +33,7 @@ namespace MVCGrid.Web
 
                         bool showErrorDetails = ConfigUtility.GetShowErrorDetailsSetting();
                         script = script.Replace("%%ERRORDETAILS%%", showErrorDetails.ToString().ToLower());
-                        
+
 
                         var controllerPath = HttpContext.Current.Request.ApplicationPath;
                         controllerPath += "mvcgrid/grid";
@@ -204,7 +196,7 @@ namespace MVCGrid.Web
             renderingEngine.PrepareResponse(context.Response);
             engine.Run(renderingEngine, gridContext, context.Response.Output);
         }
-        
+
         private void HandleScript(HttpContext context)
         {
             context.Response.ContentType = "application/javascript";

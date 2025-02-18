@@ -1,33 +1,25 @@
 ﻿using MVCGrid.Interfaces;
 using MVCGrid.Models;
-using MVCGrid.Rendering;
+using MVCGrid.NetCore.Helpers;
+using MVCGrid.NetCore.Interfaces;
+using MVCGrid.NetCore.Models;
+using MVCGrid.NetCore.Utility;
 using MVCGrid.Utility;
 using MVCGrid.Web;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore;
 using System.Web;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Http;
-using MVCGrid.NetCore.Helpers;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using MVCGrid.NetCore.Utility;
-using MVCGrid.NetCore.Utility;
 using GridContextUtility = MVCGrid.NetCore.Utility.GridContextUtility;
-using MVCGrid.NetCore.Interfaces;
-using MVCGrid.NetCore.Models;
 
 namespace MVCGrid.NetCore.Engine
 {
     public class GridEngine
     {
         private static readonly Encoding LocalEncoding = Encoding.UTF8;
+
 
         public static IMVCGridRenderingEngine GetRenderingEngine(GridContext gridContext)
         {
@@ -130,11 +122,11 @@ namespace MVCGrid.NetCore.Engine
                 model.PagingModel.TotalRecords = totalRecords.Value;
 
                 model.PagingModel.FirstRecord = (currentPageIndex * gridContext.QueryOptions.ItemsPerPage.Value) + 1;
-                if(model.PagingModel.FirstRecord > model.PagingModel.TotalRecords) 
+                if (model.PagingModel.FirstRecord > model.PagingModel.TotalRecords)
                 {
                     model.PagingModel.FirstRecord = model.PagingModel.TotalRecords;
                 }
-                model.PagingModel.LastRecord = (model.PagingModel.FirstRecord + gridContext.QueryOptions.ItemsPerPage.Value) - 1;
+                model.PagingModel.LastRecord = model.PagingModel.FirstRecord + gridContext.QueryOptions.ItemsPerPage.Value - 1;
                 if (model.PagingModel.LastRecord > model.PagingModel.TotalRecords)
                 {
                     model.PagingModel.LastRecord = model.PagingModel.TotalRecords;
@@ -384,7 +376,7 @@ namespace MVCGrid.NetCore.Engine
                     allowAccess = true;
                     break;
                 case AuthorizationType.Authorized:
-                    allowAccess = (HttpHelper.HttpContext.User.Identity.IsAuthenticated);
+                    allowAccess = HttpHelper.HttpContext.User.Identity.IsAuthenticated;
                     break;
                 default:
                     throw new Exception("Unsupported AuthorizationType");

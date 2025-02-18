@@ -1,9 +1,6 @@
 ﻿using MVCGrid.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
 
 namespace MVCGrid.Models
 {
@@ -32,7 +29,7 @@ namespace MVCGrid.Models
             RenderingMode = Models.RenderingMode.RenderingEngine;
             ViewPath = "~/Views/MVCGrid/_Grid.cshtml";
             ContainerViewPath = null;
-            ErrorMessageHtml= @"<div class=""alert alert-warning"" role=""alert"">There was a problem loading the grid.</div>";
+            ErrorMessageHtml = @"<div class=""alert alert-warning"" role=""alert"">There was a problem loading the grid.</div>";
             AdditionalQueryOptionNames = new HashSet<string>();
             PageParameterNames = new HashSet<string>();
             AllowChangingPageSize = false;
@@ -64,7 +61,8 @@ namespace MVCGrid.Models
         public bool Filtering { get; set; }
 
         [Obsolete("RenderingEngine is obsolete. Please user RenderingEngines and DefaultRenderingEngineName")]
-        public Type RenderingEngine {
+        public Type RenderingEngine
+        {
             get
             {
                 if (RenderingEngines[DefaultRenderingEngineName] == null)
@@ -76,7 +74,8 @@ namespace MVCGrid.Models
                 Type t = Type.GetType(typeName, true);
                 return t;
             }
-            set {
+            set
+            {
                 string fullyQualifiedName = value.AssemblyQualifiedName;
                 string name = value.Name;
 

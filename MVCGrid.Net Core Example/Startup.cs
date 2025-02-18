@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVCGrid.Net_Core_Example.Grids;
@@ -39,7 +33,10 @@ namespace MVCGrid.Net_Core_Example
                 options.HttpsPort = 443;
             });
             services.AddMvcGrid();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            });
             services.AddSignalR();
             services.AddMvcGridSignalR();
         }
@@ -68,11 +65,19 @@ namespace MVCGrid.Net_Core_Example
             });
             app.UseCookiePolicy();
 
+
+
             app.RegisterMVCGrid("TestGrid", GridTest.Test());
             app.RegisterMVCGrid("TestGrid2", GridTest.Test2());
             app.UseMvcGrid();
             app.UseMvcGridSignalR();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Example}/{action=Basic}/{id?}");
+            });
         }
     }
 }

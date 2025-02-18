@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVCGrid.Models
 {
@@ -155,7 +151,7 @@ namespace MVCGrid.Models
             return this;
         }
 
-        
+
 
         /// <summary>
         /// Number of items to display on each page
