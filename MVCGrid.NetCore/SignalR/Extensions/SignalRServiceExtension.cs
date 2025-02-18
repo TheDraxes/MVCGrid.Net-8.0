@@ -7,6 +7,7 @@ namespace MVCGrid.NetCore
     {
         public static void AddMvcGridSignalR(this IServiceCollection services)
         {
+            services.AddSignalRCore();
             services.AddScoped<SignalRHelper>();
         }
     }

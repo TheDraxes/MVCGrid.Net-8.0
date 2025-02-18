@@ -15,10 +15,6 @@ namespace MVCGrid.NetCore.SignalR
                 endpoints.MapHub<MVCGridSignalR>("/MVCGridSignalR");
             });
 
-            //app.UseSignalR(routes =>
-            //{
-            //    routes.MapHub<MVCGridSignalR>("/MVCGridSignalR");
-            //});
             SignalRHelper.Configure(app.ApplicationServices.GetRequiredService<IHubContext<MVCGridSignalR>>());
         }
     }
